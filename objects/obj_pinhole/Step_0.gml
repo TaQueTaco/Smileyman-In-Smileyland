@@ -12,7 +12,10 @@ else
 		}
 		else if (transition == 2)
 		{
-			room_restart()
+			if global.lives > 0
+				room_restart()
+			else
+				room_goto(titlescreen)
 		}
 		else
 		{
