@@ -1,0 +1,20 @@
+if !instance_exists(obj_player)
+	exit;
+	
+if abs(obj_player.hsp) > 4
+	hsp = lerp(hsp, obj_player.hsp * 4, 0.5)
+else
+	hsp = lerp(hsp, 0, 0.5)
+
+if !obj_player.grounded
+	vsp = lerp(vsp, obj_player.vsp * 3, 0.5)
+else
+	vsp = lerp(vsp, 0, 0.5)
+
+x = obj_player.x - 480 + hsp
+y = obj_player.y -270 + vsp
+
+x = clamp(x, 0, room_width - 960)
+y = clamp(y, 0, room_height - 540)
+
+camera_set_view_pos(view_camera[0], x, y)
