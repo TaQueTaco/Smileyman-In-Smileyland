@@ -16,7 +16,27 @@ grav = 0.5
 image_speed = 1/6
 
 if (wall == 0)
+{
 	walltime = 0
+	
+	if audio_is_playing(slidesnd)
+	{
+		audio_stop_sound(slidesnd)
+		slidesnd = -4
+	}
+}
+
+if !grounded
+{
+	if audio_is_playing(walksnd)
+	{
+		audio_stop_sound(walksnd)
+		walksnd = -4
+	}
+}
+
+if grounded || (wall != 0)
+	falltime = 0;
 
 if (wall != 0)
 {
@@ -48,11 +68,25 @@ if (wall != 0)
 		{
 			grav = 0.2
 			vsp = max(vsp, 2)
+			if slidesnd == -4
+			{
+				slidesnd = audio_play_sound(sfx_slide, 1, 1, global.sfx_vol, 0);
+			}
 		}
 	}
 }
 else if grounded
 {
+	if !prevGrounded
+	{
+		sound_play(sfx_land, random_range(0.85, 1.15))
+		landAnim = true;
+		sprite_index = landspr
+		image_index = 0;
+		if audio_is_playing(sfx_gasp)
+			audio_stop_sound(sfx_gasp)
+	}
+	
 	move = key_right - key_left
 	var accel = 0.4
 	
@@ -64,18 +98,41 @@ else if grounded
 	
 	if hsp != 0
 	{
+		if walksnd == -4
+		{
+			walksnd = audio_play_sound(sfx_walking, 1, 1, global.sfx_vol, 0);
+		}
+		audio_sound_pitch(walksnd, max(0.5, (abs(hsp)/walkspd) * 1.3))
+		
 		if move == -xscale
 		{
 			hsp += grdfriction * -xscale
 		}
 		xscale = sign(hsp)
 		
-		image_speed = (sprite_index == runspr) ? (1/3) : ((abs(hsp)/walkspd) * (1/6))
-	
-		sprite_index = (abs(hsp) >= runspd) ? runspr : walkspr
+		if !landAnim
+		{
+			image_speed = (sprite_index == runspr) ? (1/3) : ((abs(hsp)/walkspd) * (1/6))
+		
+			sprite_index = (abs(hsp) >= runspd) ? runspr : walkspr
+		}
 	}
-	else
+	else if !landAnim
+	{
 		sprite_index = idlespr
+		if audio_is_playing(walksnd)
+		{
+			audio_stop_sound(walksnd)
+			walksnd = -4
+		}
+	}
+		
+	if landAnim
+	{
+		image_speed = 1/6
+		if anim_end()
+			landAnim = false;
+	}
 }
 else
 {
@@ -94,19 +151,30 @@ else
 		}
 	}
 	
-	if sprite_index != jumpspr
+	if (sprite_index != jumpspr) && (sprite_index != fallspr1) && (sprite_index != fallspr2)
 	{
 		jumpstop = 1
-		sprite_index = jumpspr
-		image_index = 0
-	}
-	else if anim_end()
-	{
-		image_index = image_number - 1
+		sprite_index = fallspr2
 	}
 	
+	if (sprite_index == jumpspr)
+	{
+		if anim_end()
+			sprite_index = fallspr1
+	}
+	else
+		sprite_index = (falltime >= 60) ? fallspr2 : fallspr1
+	
 	if (vsp > 0)
+	{
 		jumpstop = 1
+		if falltime < 60
+			falltime++
+		if (falltime >= 60) && (sprite_index != fallspr2)
+		{
+			sound_play(sfx_gasp, random_range(0.85, 1.15))
+		}
+	}
 	
 	if !jumpstop
 	{
@@ -120,13 +188,19 @@ else
 	
 	if place_meeting_collision(x + sign(hsp), y, Exclude.SLOPES) && place_meeting_collision(x + sign(hsp), y + 64, Exclude.SLOPES)
 	{
+		sound_play(sfx_land, random_range(0.85, 1.15))
 		wall = sign(hsp)
 		walltime = 30;
+		if audio_is_playing(sfx_gasp)
+			audio_stop_sound(sfx_gasp)
 	}
 }
 
 if (coyote || (wall != 0)) && (input_buffer_jump) && (walltime != 30)
 {
+	sound_play_3d(sfx_jump, x, y, random_range(0.85, 1.15))
+	if audio_is_playing(sfx_land)
+		audio_stop_sound(sfx_land)
 	coyote = 0
 	input_buffer_jump = 0;
 	vsp = jumpspd
@@ -139,5 +213,7 @@ if (coyote || (wall != 0)) && (input_buffer_jump) && (walltime != 30)
 		hsp = xscale * walljumpspd
 	}
 }
-
+audio_listener_set_position(0, -x, y, 0)
+var _g = grounded
 scr_collision()
+prevGrounded = _g

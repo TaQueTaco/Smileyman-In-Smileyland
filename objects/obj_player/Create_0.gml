@@ -1,4 +1,6 @@
 scr_collision_init()
+terminalVelocity = 15;
+prevGrounded = 0;
 jumpspd = -13
 walkspd = 6
 walljumpspd = 8
@@ -11,11 +13,23 @@ coyote = 0;
 wall = 0;
 walltime = 0;
 
+falltime = 0;
+
+slidesnd = -4
+audio_sound_loop_start(sfx_slide, 0.55);
+audio_sound_loop_end(sfx_slide, 1.49);
+
+walksnd = -4
+
 idlespr = spr_smiley_idle
 walkspr = spr_smiley_walk
 runspr = spr_smiley_run
 jumpspr = spr_smiley_jump
+fallspr1 = spr_smiley_fall1
+fallspr2 = spr_smiley_fall2
 wallspr = spr_smiley_wallslide
+landspr = spr_smiley_land
+landAnim = 0
 
 xscale = 1
 jumpstop = 0
