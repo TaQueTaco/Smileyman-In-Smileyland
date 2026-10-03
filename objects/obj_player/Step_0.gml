@@ -11,11 +11,15 @@ if input_buffer_jump
 if key_jump2
 	input_buffer_jump = 8
 
-if room == titlescreen
+if (room == titlescreen) || (room == gameover)
 {
 	grav = 0
 	hsp = 0
 	vsp = 0
+}
+else if oneup
+{
+	scr_smiley_1up()
 }
 else if win
 {

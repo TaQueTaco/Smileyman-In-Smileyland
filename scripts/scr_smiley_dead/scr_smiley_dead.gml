@@ -41,6 +41,13 @@ function scr_smiley_dead(){
 			if global.lives > 0
 				global.lives--
 			sound_play(sfx_die, random_range(0.95, 1.05))
+			
+			global.score = max(global.score - 100, 0)
+			with obj_camera
+			{
+				deadflash = 1	
+			}
+			
 			repeat 100
 			{
 				instance_create_depth(x, y, depth - 1, obj_blood)

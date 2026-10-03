@@ -6,6 +6,17 @@ if instance_exists(obj_player)
 			audio_stop_sound(musicid)
 		exit;
 	}
+	if obj_player.oneup
+	{
+		if !audio_is_paused(musicid)
+			audio_pause_sound(musicid)
+		exit;
+	}
+	else
+	{
+		if audio_is_paused(musicid)
+			audio_resume_sound(musicid)
+	}
 }
 
 if instance_exists(obj_titlescreen)
@@ -16,6 +27,13 @@ if instance_exists(obj_titlescreen)
 			audio_stop_sound(musicid)
 		exit;
 	}
+}
+
+if room == gameover
+{
+	if audio_is_playing(musicid)	
+		audio_stop_sound(musicid)
+	exit;
 }
 
 

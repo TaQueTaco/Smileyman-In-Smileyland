@@ -15,7 +15,11 @@ else
 			if global.lives > 0
 				room_restart()
 			else
-				room_goto(titlescreen)
+				room_goto(gameover)
+		}
+		else if (transition == 3)
+		{
+			room_goto(Room1)
 		}
 		else
 		{
@@ -24,7 +28,12 @@ else
 	}
 }
 
-if instance_exists(obj_titlescreen)
+if room == gameover
+{
+	x = 480
+	y = 270
+}
+else if instance_exists(obj_titlescreen)
 {
 	x = 681	
 	y = 274

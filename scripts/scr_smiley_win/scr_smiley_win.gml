@@ -1,16 +1,16 @@
 function scr_smiley_win(){
+	if audio_is_playing(slidesnd)
+	{
+		audio_stop_sound(slidesnd)
+		slidesnd = -4
+	}
+	if audio_is_playing(walksnd)
+	{
+		audio_stop_sound(walksnd)
+		walksnd = -4
+	}
 	if grounded
 	{
-		if audio_is_playing(slidesnd)
-		{
-			audio_stop_sound(slidesnd)
-			slidesnd = -4
-		}
-		if audio_is_playing(walksnd)
-		{
-			audio_stop_sound(walksnd)
-			walksnd = -4
-		}
 		if audio_is_playing(sfx_gasp)
 			audio_stop_sound(sfx_gasp)
 		if audio_is_playing(sfx_jump)
@@ -52,14 +52,26 @@ function scr_smiley_win(){
 					sprite_index = spr_smiley_win
 					if (alarm[0] == -1) && !instance_exists(obj_pinhole)
 					{
-						alarm[0] = 380
+						alarm[0] = 660
 						audio_play_sound(mus_win, 1, 0, global.mus_vol, 0);
 					}	
 				}
 			}
-			else if anim_end()
+			else 
 			{
-				image_index = image_number - 1;
+				if (deadshake < 295) && !audio_is_playing(mus_win)
+				{
+					deadshake++
+					global.score++
+					if deadshake >= 295
+						sound_play(sfx_incrementdone)
+					else
+						sound_play(sfx_increment, random_range(0.85, 1.15))
+				}
+				if anim_end()
+				{
+					image_index = image_number - 1;
+				}
 			}
 		}
 	}

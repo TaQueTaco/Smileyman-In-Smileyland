@@ -18,3 +18,9 @@ x = clamp(x, 0, room_width - 960)
 y = clamp(y, 0, room_height - 540)
 
 camera_set_view_pos(view_camera[0], x, y)
+
+if deadflash > 0
+	deadflash -= 0.08
+
+if lifeflash > 0
+	lifeflash -= 0.06

@@ -9,9 +9,12 @@ if instance_exists(obj_spawnpoint)
 	y = obj_spawnpoint.y
 	scr_collision()
 	prevGrounded = grounded
-	sound_play(sfx_fadein)
-	with instance_create_depth(obj_spawnpoint.x, obj_spawnpoint.y, -999, obj_pinhole)
+	if room != gameover
 	{
-		transition = 0	
+		sound_play(sfx_fadein)
+		with instance_create_depth(obj_spawnpoint.x, obj_spawnpoint.y, -999, obj_pinhole)
+		{
+			transition = 0	
+		}
 	}
 }
