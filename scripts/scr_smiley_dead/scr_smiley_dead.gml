@@ -89,7 +89,7 @@ function scr_smiley_dead(){
 		image_alpha = 0
 		if deadshake < 100
 			deadshake++
-		if (alarm[0] == -1) && (deadshake >= 100)
+		if (alarm[0] == -1) && (deadshake >= 100) && !instance_exists(obj_pinhole)
 		{
 			alarm[0] = 260
 			audio_play_sound(mus_die, 1, 0, global.mus_vol, 0);

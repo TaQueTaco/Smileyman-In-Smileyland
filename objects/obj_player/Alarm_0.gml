@@ -1,8 +1,5 @@
-if dead
+sound_play(sfx_fadeout)
+with instance_create_depth(x, y, -999, obj_pinhole)
 {
-	room_restart()	
-}
-else
-{
-	room_goto_next()	
+	transition = 1 + other.dead
 }

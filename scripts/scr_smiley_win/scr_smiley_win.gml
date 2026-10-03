@@ -25,13 +25,16 @@ function scr_smiley_win(){
 		
 		hsp = Approach(hsp, 0, 0.4)
 		
-		if (hsp != 0) && (!landAnim)
+		if (hsp != 0) || landAnim
 		{
 			image_speed = 1/6
 			if landAnim
 			{
 				if anim_end()
+				{
 					landAnim = false;
+					sprite_index = idlespr
+				}
 			}
 			else
 			{
@@ -47,10 +50,10 @@ function scr_smiley_win(){
 				if deadshake >= 45
 				{
 					sprite_index = spr_smiley_win
-					if (alarm[0] == -1)
+					if (alarm[0] == -1) && !instance_exists(obj_pinhole)
 					{
-						alarm[0] = 260
-						audio_play_sound(mus_die, 1, 0, global.mus_vol, 0);
+						alarm[0] = 380
+						audio_play_sound(mus_win, 1, 0, global.mus_vol, 0);
 					}	
 				}
 			}
