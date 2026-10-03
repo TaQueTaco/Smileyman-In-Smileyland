@@ -16,7 +16,22 @@ function scr_smiley_wall(){
 	}
 	else
 	{
-		sprite_index = wallspr
+		image_speed = 1/6
+		if landAnim
+		{
+			if sprite_index != walllandspr
+			{
+				sprite_index = walllandspr
+				image_index = 0;
+			}
+			else if anim_end()
+			{
+				landAnim = false;
+				sprite_index = wallspr
+			}
+		}
+		else
+			sprite_index = wallspr
 		if walltime
 		{
 			walltime--

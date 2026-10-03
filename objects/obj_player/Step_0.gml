@@ -11,7 +11,13 @@ if input_buffer_jump
 if key_jump2
 	input_buffer_jump = 8
 
-if win
+if room == titlescreen
+{
+	grav = 0
+	hsp = 0
+	vsp = 0
+}
+else if win
 {
 	scr_smiley_win()
 }

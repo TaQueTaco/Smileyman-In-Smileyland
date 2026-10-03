@@ -25,7 +25,7 @@ function __InputConfigVerbs()
     InputDefineVerb(INPUT_VERB.DOWN,    "down",       [vk_down,  "S"],    [ gp_axislv, gp_padd]);
     InputDefineVerb(INPUT_VERB.LEFT,    "left",       [vk_left,  "A"],    [-gp_axislh, gp_padl]);
     InputDefineVerb(INPUT_VERB.RIGHT,   "right",      [vk_right, "D"],    [ gp_axislh, gp_padr]);
-    InputDefineVerb(INPUT_VERB.ACTION,  "action",      vk_shift,          [ gp_face3, gp_face4]);
+    InputDefineVerb(INPUT_VERB.ACTION,  "action",     ["X", vk_shift],    [ gp_face3, gp_face4]);
     InputDefineVerb(INPUT_VERB.JUMP,    "jump",        "Z",               [ gp_face1, gp_face2]);
 	
     if (INPUT_ON_SWITCH_X)
@@ -36,8 +36,8 @@ function __InputConfigVerbs()
     }
     else
     {
-        InputDefineVerb(INPUT_VERB.ACCEPT, "accept", vk_space,     gp_face1);
-        InputDefineVerb(INPUT_VERB.CANCEL, "cancel", vk_backspace, gp_face2);
+        InputDefineVerb(INPUT_VERB.ACCEPT, "accept", "Z",     gp_face1);
+        InputDefineVerb(INPUT_VERB.CANCEL, "cancel", "X", gp_face2);
     }
     
     if (INPUT_ON_PS5)

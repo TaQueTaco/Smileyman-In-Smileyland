@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"mus_win",
+  "%Name":"mus_world1",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,9 +10,9 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":6.5052156,
+  "duration":81.23558,
   "exportDir":"",
-  "name":"mus_win",
+  "name":"mus_world1",
   "parent":{
     "name":"Music",
     "path":"folders/Music.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"mus_win.wav",
+  "soundFile":"mus_world1.wav",
   "volume":0.67,
 }

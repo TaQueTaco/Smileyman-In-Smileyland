@@ -81,6 +81,7 @@ function scr_smiley_air(){
 	if place_meeting_collision(x + sign(hsp), y, Exclude.SLOPES) && place_meeting_collision(x + sign(hsp), y + 64, Exclude.SLOPES)
 	{
 		sound_play(sfx_land, random_range(0.85, 1.15))
+		landAnim = 1;
 		wall = sign(hsp)
 		walltime = 30;
 		if audio_is_playing(sfx_gasp)

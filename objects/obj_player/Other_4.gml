@@ -1,5 +1,6 @@
 if instance_exists(obj_spawnpoint)
 {
+	image_alpha = 1
 	dead = 0
 	win = 0
 	sprite_index = idlespr

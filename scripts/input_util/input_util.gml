@@ -12,4 +12,7 @@ function get_input(){
 	key_down2 = InputPressed(INPUT_VERB.DOWN)
 	key_jump2 = InputPressed(INPUT_VERB.JUMP)
 	key_run2 = InputPressed(INPUT_VERB.ACTION)
+	
+	key_accept = InputPressed(INPUT_VERB.ACCEPT)
+	key_cancel = InputPressed(INPUT_VERB.CANCEL)
 }
