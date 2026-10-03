@@ -1,13 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"obj_instakill",
-  "eventList":[],
+  "%Name":"obj_spring",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":7,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"obj_instakill",
+  "name":"obj_spring",
   "overriddenProperties":[],
   "parent":{
-    "name":"Parents",
-    "path":"folders/Objects/Parents.yy",
+    "name":"Gimmicks",
+    "path":"folders/Objects/Gimmicks.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -27,7 +29,13 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
-  "spriteMaskId":null,
+  "spriteId":{
+    "name":"spr_spring",
+    "path":"sprites/spr_spring/spr_spring.yy",
+  },
+  "spriteMaskId":{
+    "name":"spr_spring",
+    "path":"sprites/spr_spring/spr_spring.yy",
+  },
   "visible":true,
 }

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_smiley_dead",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_smiley_dead",
+  "parent":{
+    "name":"Smileyman",
+    "path":"folders/Scripts/Smileyman.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

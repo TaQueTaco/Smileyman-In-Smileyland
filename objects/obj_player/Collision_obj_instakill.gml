@@ -1,4 +1,4 @@
-if !dead
+if !dead && !win
 {
 	sound_play(sfx_impact, random_range(0.95, 1.05))
 	instance_create_depth(0,0,-999,obj_deathflash)
