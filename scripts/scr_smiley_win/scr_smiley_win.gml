@@ -68,10 +68,6 @@ function scr_smiley_win(){
 					else
 						sound_play(sfx_increment, random_range(0.85, 1.15))
 				}
-				if anim_end()
-				{
-					image_index = image_number - 1;
-				}
 			}
 		}
 	}

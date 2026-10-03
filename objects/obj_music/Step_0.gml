@@ -29,6 +29,16 @@ if instance_exists(obj_titlescreen)
 	}
 }
 
+if instance_exists(par_boss)
+{
+	if par_boss.hp == 0
+	{
+		if audio_is_playing(musicid)	
+			audio_stop_sound(musicid)
+		exit;
+	}
+}
+
 if room == gameover
 {
 	if audio_is_playing(musicid)	

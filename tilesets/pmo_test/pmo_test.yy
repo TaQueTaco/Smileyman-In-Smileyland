@@ -8,7 +8,7 @@
     "TileSerialiseData":[],
   },
   "name":"pmo_test",
-  "out_columns":4,
+  "out_columns":5,
   "out_tilehborder":2,
   "out_tilevborder":2,
   "parent":{
@@ -34,5 +34,5 @@
   "tileWidth":64,
   "tilexoff":0,
   "tileyoff":0,
-  "tile_count":18,
+  "tile_count":30,
 }

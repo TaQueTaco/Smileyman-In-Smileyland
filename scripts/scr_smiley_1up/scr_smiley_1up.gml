@@ -69,13 +69,9 @@ function scr_smiley_1up(){
 					else
 						sound_play(sfx_increment, random_range(0.85, 1.15))
 				}
-				if anim_end()
+				if !audio_is_playing(sfx_incrementdone) && deadshake >= 55
 				{
-					image_index = image_number - 1;
-					if !audio_is_playing(sfx_incrementdone) && deadshake >= 55
-					{
-						oneup = 0;	
-					}
+					oneup = 0;	
 				}
 			}
 		}
