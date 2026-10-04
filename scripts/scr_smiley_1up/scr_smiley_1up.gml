@@ -60,16 +60,7 @@ function scr_smiley_1up(){
 			}
 			else 
 			{
-				if (deadshake < 55) && !audio_is_playing(mus_1up)
-				{
-					deadshake++
-					global.score++
-					if deadshake >= 55
-						sound_play(sfx_incrementdone)
-					else
-						sound_play(sfx_increment, random_range(0.85, 1.15))
-				}
-				if !audio_is_playing(sfx_incrementdone) && deadshake >= 55
+				if !audio_is_playing(mus_1up) && deadshake >= 45
 				{
 					oneup = 0;	
 				}
