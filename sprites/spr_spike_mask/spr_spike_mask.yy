@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Gimmicks",
-    "path":"folders/Sprites/Gimmicks.yy",
+    "name":"Collision Masks",
+    "path":"folders/Sprites/Collision Masks.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

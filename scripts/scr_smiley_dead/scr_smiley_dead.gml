@@ -38,6 +38,7 @@ function scr_smiley_dead(){
 		
 		if deadshake >= 45
 		{
+			dead = 2;
 			if global.lives > 0
 				global.lives--
 			sound_play(sfx_die, random_range(0.95, 1.05))

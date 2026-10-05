@@ -1,6 +1,11 @@
 if !instance_exists(obj_player)
 	exit;
-	
+
+if blueindex < 7
+	blueindex += 1/3
+else
+	blueindex = frac(blueindex)
+
 if abs(obj_player.hsp) > 4
 	hsp = lerp(hsp, obj_player.hsp * 4, 0.5)
 else
@@ -24,3 +29,12 @@ if deadflash > 0
 
 if lifeflash > 0
 	lifeflash -= 0.06
+	
+if showblue > 0
+	showblue -= 1/60
+
+sprite_index = spr_life
+if global.lives <= 1
+	sprite_index = spr_lifeuhoh
+if global.lives == 0 && (obj_player.dead == 2)
+	sprite_index = spr_death

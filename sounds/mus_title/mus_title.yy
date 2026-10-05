@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"mus_title",
   "parent":{
-    "name":"Music",
-    "path":"folders/Music.yy",
+    "name":"Menu",
+    "path":"folders/Music/Menu.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

@@ -1,0 +1,5 @@
+ini_open("options.ini")
+ini_write_real("Volume", "Master", global.mas_vol)
+ini_write_real("Volume", "Music", global.mus_vol)
+ini_write_real("Volume", "SFX", global.sfx_vol)
+ini_close()

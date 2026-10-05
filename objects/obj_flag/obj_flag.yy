@@ -8,8 +8,8 @@
   "name":"obj_flag",
   "overriddenProperties":[],
   "parent":{
-    "name":"Gimmicks",
-    "path":"folders/Objects/Gimmicks.yy",
+    "name":"Goods",
+    "path":"folders/Objects/Goods.yy",
   },
   "parentObjectId":null,
   "persistent":false,

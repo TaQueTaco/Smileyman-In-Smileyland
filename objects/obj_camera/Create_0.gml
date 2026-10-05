@@ -4,3 +4,5 @@ depth = -1000
 image_speed = 1/6
 deadflash = 0
 lifeflash = 0
+showblue = 0;
+blueindex = 0;

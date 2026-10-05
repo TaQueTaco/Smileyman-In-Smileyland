@@ -36,18 +36,18 @@ function __InputConfigVerbs()
     }
     else
     {
-        InputDefineVerb(INPUT_VERB.ACCEPT, "accept", "Z",     gp_face1);
-        InputDefineVerb(INPUT_VERB.CANCEL, "cancel", "X", gp_face2);
+        InputDefineVerb(INPUT_VERB.ACCEPT, "accept", "Z",       gp_face1);
+        InputDefineVerb(INPUT_VERB.CANCEL, "cancel", "X",       gp_face2);
     }
     
     if (INPUT_ON_PS5)
     {
         //`gp_select` is inaccessible on PS5
-        InputDefineVerb(INPUT_VERB.PAUSE, "pause", vk_backspace, gp_touchpadbutton);
+        InputDefineVerb(INPUT_VERB.PAUSE, "pause", vk_escape, gp_touchpadbutton);
     }
     else
     {
-        InputDefineVerb(INPUT_VERB.PAUSE, "pause", vk_backspace, gp_select);
+        InputDefineVerb(INPUT_VERB.PAUSE, "pause", vk_escape, gp_select);
     }
     
     

@@ -1,5 +1,16 @@
 get_input();
 
+if !audio_is_playing(sfx_coin)
+	global.coinpitch = 1;
+
+if global.score >= (global.livescheck * 1000)
+{
+	global.livescheck ++
+	global.lives++
+	if !audio_is_playing(mus_1upjingle)
+		audio_play_sound(mus_1upjingle, 1, 0, global.mus_vol, 0);
+}
+
 if grounded
 	coyote = 6
 else if coyote
@@ -11,7 +22,7 @@ if input_buffer_jump
 if key_jump2
 	input_buffer_jump = 8
 
-if (room == titlescreen) || (room == gameover)
+if (room == titlescreen) || (room == gameover) || (room == levelselect)
 {
 	grav = 0
 	hsp = 0

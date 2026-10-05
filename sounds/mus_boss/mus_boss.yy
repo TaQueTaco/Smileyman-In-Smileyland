@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"mus_boss",
   "parent":{
-    "name":"Music",
-    "path":"folders/Music.yy",
+    "name":"Level",
+    "path":"folders/Music/Level.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

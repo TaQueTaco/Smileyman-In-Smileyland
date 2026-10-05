@@ -10,10 +10,16 @@ with obj_gib
 
 with obj_player
 {
-	draw_sprite_ext(sprite_index, image_index, x, y, xscale, 1, 0, c_black, other.image_alpha)	
+	draw_sprite_ext(sprite_index, image_index, x, y, xscale, 1, 0, c_black, other.image_alpha * image_alpha)	
 }
 
 with par_boss
 {
-	draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, c_black, other.image_alpha)	
+	draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, c_black, other.image_alpha * image_alpha)	
+}
+
+with par_enemy
+{
+	if killer
+		draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, c_black, other.image_alpha * image_alpha)	
 }

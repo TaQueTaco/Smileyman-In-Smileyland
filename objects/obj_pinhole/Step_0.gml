@@ -6,24 +6,38 @@ else
 		wait--
 	else
 	{
-		if (transition == 1)
+		switch transition
 		{
-			room_goto_next()
-		}
-		else if (transition == 2)
-		{
-			if global.lives > 0
-				room_restart()
-			else
-				room_goto(gameover)
-		}
-		else if (transition == 3)
-		{
-			room_goto(Room1)
-		}
-		else
-		{
-			instance_destroy()	
+			case -1:
+				audio_resume_all()
+				instance_activate_all()
+				room_goto(titlescreen)
+				global.pause = 0
+			break;
+			case 0:
+				instance_destroy()
+			break;
+			case 1:
+				if string_pos("Boss", room_get_name(room)) != 0
+					global.world++
+				room_goto_next()
+			break;
+			case 2:
+				if global.lives > 0
+					room_restart()
+				else
+					room_goto(gameover)
+			break;
+			case 3:
+				if global.bluecoins_world >= 4
+					room_goto_next()
+				else
+					room_goto(room_next(room_next(room)))
+				global.bluecoins_world = 0;
+			break;
+			case 4:
+				room_goto(Room1)
+			break;
 		}
 	}
 }

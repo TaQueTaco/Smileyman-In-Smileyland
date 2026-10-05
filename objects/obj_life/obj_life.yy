@@ -9,8 +9,8 @@
   "name":"obj_life",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Goods",
+    "path":"folders/Objects/Goods.yy",
   },
   "parentObjectId":null,
   "persistent":false,

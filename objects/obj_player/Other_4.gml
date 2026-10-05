@@ -9,7 +9,7 @@ if instance_exists(obj_spawnpoint)
 	y = obj_spawnpoint.y
 	scr_collision()
 	prevGrounded = grounded
-	if room != gameover
+	if (room != gameover) && (room != levelselect)
 	{
 		sound_play(sfx_fadein)
 		with instance_create_depth(obj_spawnpoint.x, obj_spawnpoint.y, -999, obj_pinhole)

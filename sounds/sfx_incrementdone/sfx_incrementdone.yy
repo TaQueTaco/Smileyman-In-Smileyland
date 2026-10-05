@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"sfx_incrementdone",
   "parent":{
-    "name":"Sounds",
-    "path":"folders/Sounds.yy",
+    "name":"Goods",
+    "path":"folders/Sounds/Goods.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
