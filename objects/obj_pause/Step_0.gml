@@ -53,7 +53,7 @@ if global.pause
 				instance_activate_all()
 			break;
 			case 1:
-			
+				instance_create_depth(x, y, -999, obj_settings)
 			break;
 			case 2:
 				audio_stop_sound(music)

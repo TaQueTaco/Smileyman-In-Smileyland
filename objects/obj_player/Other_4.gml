@@ -18,3 +18,36 @@ if instance_exists(obj_spawnpoint)
 		}
 	}
 }
+
+switch room
+{
+	case titlescreen:
+		window_set_caption("Smileyman In Smileyland")
+	break;
+	case gameover:
+		window_set_caption("Smileyman In Death")
+	break;
+	case levelselect:
+		window_set_caption("Smileyman In The Level Select")
+	break;
+	default:
+		var _world = "Smileyland"
+		var _act = "1"
+		switch global.world
+		{
+			case 2:
+				_world = "???"
+			break;
+		}
+		
+		if (string_pos("Secret", room_get_name(room)) == 0) && (string_pos("Boss", room_get_name(room)) == 0)
+			_act = string_char_at(room_get_name(room), 5)
+		if (string_pos("Secret", room_get_name(room)) != 0)
+			_act = ":)"
+		
+		if (string_pos("Boss", room_get_name(room)) == 0)
+			window_set_caption("Smileyman In " + _world + ", Act " + _act)
+		else
+			window_set_caption("Smileyman In " + _world + ", Boss")
+	break;
+}

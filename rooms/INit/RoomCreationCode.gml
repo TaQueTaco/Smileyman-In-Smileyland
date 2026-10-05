@@ -15,6 +15,8 @@ ini_open("options.ini")
 global.mas_vol = ini_read_real("Volume", "Master", 1)
 global.mus_vol = ini_read_real("Volume", "Music", 1)
 global.sfx_vol = ini_read_real("Volume", "SFX", 1)
+global.windowtype = ini_read_real("Video", "Window", 0)
 ini_close()
 
+window_set_caption("Smileyman In Smileyland")
 room_goto_next()

@@ -7,7 +7,18 @@ if (key_down2 - key_up2) != 0
 options[1]._name = "MASTER VOLUME: " + string(global.mas_vol * 100)
 options[2]._name = "MUSIC VOLUME: " + string(global.mus_vol * 100)
 options[3]._name = "SFX VOLUME: " + string(global.sfx_vol * 100)
-options[4]._name = "WINDOW MODE: " + (window_get_borderless_fullscreen() ? "BORDERLESS" : (window_get_fullscreen() ? "FULLSCREEN" : "WINDOWED"))
+switch global.windowtype
+{
+	case 0:
+		options[4]._name = "WINDOW MODE: WINDOWED"
+	break;
+	case 1:
+		options[4]._name = "WINDOW MODE: FULLSCREEN"
+	break;
+	case 2:
+		options[4]._name = "WINDOW MODE: BORDERLESS"
+	break;
+}
 
 switch sel
 {
@@ -32,17 +43,31 @@ switch sel
 	case 4:
 		if key_accept
 		{
-			if window_get_borderless_fullscreen()
+			if global.windowtype == 0
 			{
-				window_enable_borderless_fullscreen(0)
-				window_set_fullscreen(0)
+				x = window_get_x()
+				y = window_get_y()
 			}
-			else
+			global.windowtype++
+			if global.windowtype > 2
+				global.windowtype = 0
+			
+			switch global.windowtype
 			{
-				if window_get_fullscreen()
-					window_enable_borderless_fullscreen(1)
-				else
+				case 0:
+					window_set_position(x, y)
+					window_set_fullscreen(0)
+					window_set_size(960, 540)
+					window_set_showborder(1)
+				break;
+				case 1:
 					window_set_fullscreen(1)
+				break;
+				case 2:
+					window_set_fullscreen(0)
+					window_set_showborder(0)
+					window_set_size(display_get_width(),display_get_height())
+				break;
 			}
 		}
 	break;

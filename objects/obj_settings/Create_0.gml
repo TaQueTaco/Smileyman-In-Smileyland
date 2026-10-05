@@ -7,3 +7,5 @@ options = [
 ]
 
 sel = 0
+x = (display_get_width() / 2) - 480
+y = (display_get_height() / 2) - 270
