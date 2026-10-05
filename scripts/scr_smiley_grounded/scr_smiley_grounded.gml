@@ -48,11 +48,16 @@ function scr_smiley_grounded(){
 			walksnd = -4
 		}
 	}
-		
+	
 	if landAnim
 	{
 		image_speed = 1/6
 		if anim_end()
 			landAnim = false;
+	}
+	
+	if key_down
+	{
+		crouch = 1;	
 	}
 }

@@ -58,7 +58,7 @@ else
 		}
 	}
 
-	if !grounded
+	if !grounded || crouch
 	{
 		if audio_is_playing(walksnd)
 		{
@@ -77,6 +77,10 @@ else
 	{
 		scr_smiley_wall()
 	}
+	else if crouch
+	{
+		scr_smiley_crouch()	
+	}
 	else if grounded
 	{
 		scr_smiley_grounded()
@@ -86,7 +90,7 @@ else
 		scr_smiley_air()
 	}
 
-	if (coyote || (wall != 0)) && (input_buffer_jump) && (walltime != 30)
+	if (coyote || (wall != 0)) && (input_buffer_jump) && (walltime != 30) && !crouch
 	{
 		sound_play_3d(sfx_jump, x, y, random_range(0.85, 1.15))
 		if audio_is_playing(sfx_land)
@@ -107,5 +111,7 @@ else
 }
 audio_listener_set_position(0, -x, y, 0)
 var _g = grounded
+
+mask_index = crouch ? spr_small_mask : spr_smiley_mask
 scr_collision()
 prevGrounded = _g

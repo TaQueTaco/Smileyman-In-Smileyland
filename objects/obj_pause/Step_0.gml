@@ -34,6 +34,9 @@ if InputPressed(INPUT_VERB.PAUSE) && canPause
 if global.pause
 {
 	alpha = lerp(alpha, 1, 0.2)
+	if instance_exists(obj_settings)
+		exit;
+	
 	if !instance_exists(obj_pinhole)
 	{
 		sel = clamp(sel + (key_down2 - key_up2), 0, array_length(options) - 1)

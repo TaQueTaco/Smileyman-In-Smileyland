@@ -138,7 +138,8 @@ switch attack
 			wait++
 		else if grounded && vsp >= 0
 		{
-			wait = random_range(0, 45)
+			if sprite_index == spr_maroon_stun
+			wait = random_range(35, 55)
 			attack = 0
 		}
 	break;
@@ -149,21 +150,31 @@ switch attack
 			attack = -2
 	break;
 	case 0:
-		sprite_index = spr_maroon_idle
+		if (wait < 80)
+			sprite_index = spr_maroon_idle
+		else if obj_player.dead
+		{
+			sprite_index = spr_maroon_win
+		}
+		
+		if obj_player.x < x
+			image_xscale = -1
+		else
+			image_xscale = 1
+		
 		hsp = Approach(hsp, 0, 0.8)
-		if (wait < 80) && !obj_player.dead
+		if (wait < 80)
 			wait++
 		else if wait >= 80
-			attack = irandom_range(1, 3)
+		{
+			if !obj_player.dead
+				attack = irandom_range(1, 3)
+		}
 	break;
 	case 1:
 		if sprite_index != spr_maroon_run
 		{
 			sound_play_3d(sfx_jump, x, y, random_range(0.85, 1.15))
-			if obj_player.x < x
-				image_xscale = -1
-			else
-				image_xscale = 1
 			vsp = -6
 			sprite_index = spr_maroon_run
 		}
@@ -266,4 +277,4 @@ switch attack
 }
 
 scr_collision()
-image_blend = (string_pos("maroon", sprite_get_name(sprite_index)) != 0) ? ((kill == -1) ? c_fuchsia : c_purple) : ((kill == -1) ? c_green : c_white)
+image_blend = (string_pos("maroon", sprite_get_name(sprite_index)) != 0) ? ((kill == -1) ? c_green : c_white) : ((kill == -1) ? c_fuchsia : c_purple)

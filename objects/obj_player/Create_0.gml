@@ -38,6 +38,7 @@ fallspr2 = spr_smiley_fall2
 wallspr = spr_smiley_wallslide
 walllandspr = spr_smiley_wallslideland
 landspr = spr_smiley_land
+crouchspr = spr_smiley_crouch
 landAnim = 0
 
 xscale = 1

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_smiley_crouch",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_smiley_crouch",
+  "parent":{
+    "name":"Smileyman",
+    "path":"folders/Scripts/Smileyman.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
