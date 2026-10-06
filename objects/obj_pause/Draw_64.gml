@@ -15,5 +15,18 @@ for (var i = 0; i < array_length(options); i++)
 draw_set_colour(c_white)
 draw_text(480, 64, "PAUSED")
 draw_set_valign(fa_top)
+
+if global.bluecoins_world > 0
+{
+	draw_set_font(global.fnt_score)
+	var str = string_concat("AA", global.bluecoins_world, "/5")
+	draw_set_halign(fa_center)
+	draw_sprite_ext(spr_bluecoin, blueindex, 416 - (string_width(str) / 2), 476, 1, 1, 0, c_white, alpha)
+	draw_set_colour(c_blue)
+	draw_text(480, 492, str)
+	draw_set_halign(fa_left)
+}
+
 draw_set_halign(fa_left)
 draw_set_alpha(1)
+draw_set_colour(c_white)

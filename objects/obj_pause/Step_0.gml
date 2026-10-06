@@ -33,6 +33,10 @@ if InputPressed(INPUT_VERB.PAUSE) && canPause
 
 if global.pause
 {
+	if blueindex < 7
+		blueindex += 1/3
+	else
+		blueindex = frac(blueindex)
 	alpha = lerp(alpha, 1, 0.2)
 	if instance_exists(obj_settings)
 		exit;

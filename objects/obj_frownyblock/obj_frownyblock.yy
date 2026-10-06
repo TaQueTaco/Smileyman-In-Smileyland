@@ -1,18 +1,16 @@
 {
   "$GMObject":"",
-  "%Name":"obj_worldtitle",
+  "%Name":"obj_frownyblock",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_worldtitle",
+  "name":"obj_frownyblock",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Gimmicks",
+    "path":"folders/Objects/Gimmicks.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -33,9 +31,12 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_worldtitle",
-    "path":"sprites/spr_worldtitle/spr_worldtitle.yy",
+    "name":"spr_sadsolid",
+    "path":"sprites/spr_sadsolid/spr_sadsolid.yy",
   },
-  "spriteMaskId":null,
+  "spriteMaskId":{
+    "name":"spr_solid",
+    "path":"sprites/spr_solid/spr_solid.yy",
+  },
   "visible":true,
 }
