@@ -1,4 +1,4 @@
-global.score += 90
+global.score -= 10
 global.bluecoins ++
 global.bluecoins_world ++
 sound_play(sfx_bluecoin, random_range(1, 1.3))
@@ -8,7 +8,10 @@ with obj_camera
 }
 with obj_flag
 {
-	if global.bluecoins_world >= 4
+	if global.bluecoins_world >= 5
+	{
+		special = 2;
 		sprite_index = spr_flag_special;
+	}
 }
 event_inherited();

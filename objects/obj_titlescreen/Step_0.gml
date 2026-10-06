@@ -34,8 +34,13 @@ else
 		switch select	
 		{
 			case 0:
-				winky = 1
-				instance_create_depth(740,193,depth,obj_titlestar)
+				if !(key_run && key_left && key_right)
+				{
+					winky = 1
+					instance_create_depth(740,193,depth,obj_titlestar)
+				}
+				else
+					room_goto(levelselect);
 			break;
 			case 1:
 				settings = 1

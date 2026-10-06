@@ -43,12 +43,15 @@ function scr_smiley_win(){
 		}
 		else
 		{
-			var _points = 200
+			var _points = 150
 			var _lengt = 360
 			if string_pos("Boss", room_get_name(room)) != 0
+			{
+				_points = 250
 				_lengt = 480
+			}
 			if string_pos("Secret", room_get_name(room)) != 0
-				_points = 500
+				_points = 400
 			
 			_lengt += 90
 			image_speed = 1/6

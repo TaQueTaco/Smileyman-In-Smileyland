@@ -1,5 +1,5 @@
 if !dead && !win
 {
-	win = 1 + (other.special && global.bluecoins_world >= 4)
+	win = 1 + (other.special != 0)
 	deadshake = 0
 }

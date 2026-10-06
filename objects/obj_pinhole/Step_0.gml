@@ -29,7 +29,7 @@ else
 					room_goto(gameover)
 			break;
 			case 3:
-				if global.bluecoins_world >= 4
+				if global.bluecoins_world >= 5
 					room_goto_next()
 				else
 					room_goto(room_next(room_next(room)))

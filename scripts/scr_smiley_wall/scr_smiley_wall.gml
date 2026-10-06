@@ -35,13 +35,23 @@ function scr_smiley_wall(){
 		if walltime
 		{
 			walltime--
+			if key_down
+				walltime--
 			grav = 0
 			vsp = Approach(vsp, 0.2, 0.4)
 		}
 		else
 		{
-			grav = 0.2
-			vsp = max(vsp, 2)
+			if key_down
+			{
+				grav = 0.4
+				vsp = max(vsp, 4)
+			}
+			else
+			{
+				grav = 0.2
+				vsp = max(vsp, 2)
+			}
 			if slidesnd == -4
 			{
 				slidesnd = audio_play_sound(sfx_slide, 1, 1, global.sfx_vol, 0);
