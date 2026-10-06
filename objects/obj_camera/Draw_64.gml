@@ -47,7 +47,7 @@ draw_set_colour(c_white)
 if showblue > 0
 {
 	draw_set_font(global.fnt_score)
-	var str = string_concat("AA", global.bluecoins_world, "/4")
+	var str = string_concat("AA", global.bluecoins_world, "/5")
 	draw_set_halign(fa_center)
 	draw_sprite_ext(spr_bluecoin, blueindex, 416 - (string_width(str) / 2), 476, 1, 1, 0, c_white,showblue)
 	draw_set_alpha(showblue)
