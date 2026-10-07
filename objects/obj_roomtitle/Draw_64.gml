@@ -1,6 +1,6 @@
 draw_self();
 
-if (time >= 30 && time <= 270)
+if (time >= 15 && time <= 255)
 {
 	draw_set_font(global.fnt_text)
 	draw_set_valign(fa_middle)

@@ -15,6 +15,8 @@ else
 				global.pause = 0
 			break;
 			case 0:
+				if (room != titlescreen)
+					instance_create_depth(0, 64, -999, obj_roomtitle)
 				instance_destroy()
 			break;
 			case 1:
