@@ -46,13 +46,13 @@ else
 	image_speed = 1/6
 	if oneup
 	{
-		grav = 0
+		grav = 0.6
 		scr_smiley_1up()
 		state = states.oneup
 	}
 	else if win
 	{
-		grav = 0
+		grav = 0.6
 		scr_smiley_win()
 		state = states.win
 	}
