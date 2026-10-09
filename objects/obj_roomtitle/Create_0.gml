@@ -12,13 +12,13 @@ str = string_concat(str, " - ")
 switch room
 {
 	case Room1:
-		str = string_concat(str, "WELCOME")
+		str = string_concat(str, "HAPPY HILL")
 	break;
 	case Room2:
-		str = string_concat(str, "HUMBLE SPRINGS")
+		str = string_concat(str, "HUMBLE SPRINGINNINGS")
 	break;
 	case Room3:
-		str = string_concat(str, "HI SPAUL")
+		str = string_concat(str, "HI SPAUL!")
 	break;
 	case Room4:
 		str = string_concat(str, "WELCOME 2")
