@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_title",
-    "path":"sprites/spr_title/spr_title.yy",
+    "name":"spr_titlesmiley_newgame",
+    "path":"sprites/spr_titlesmiley_newgame/spr_titlesmiley_newgame.yy",
   },
   "spriteMaskId":null,
   "visible":true,

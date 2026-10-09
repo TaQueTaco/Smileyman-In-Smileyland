@@ -1,5 +1,6 @@
 if instance_exists(obj_spawnpoint)
 {
+	state = states.normal
 	image_alpha = 1
 	dead = 0
 	win = 0

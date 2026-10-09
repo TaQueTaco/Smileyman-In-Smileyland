@@ -18,5 +18,13 @@ global.sfx_vol = ini_read_real("Volume", "SFX", 1)
 global.windowtype = ini_read_real("Video", "Window", 0)
 ini_close()
 
+ini_open("savefile.ini")
+global.save = {
+	_exists:ini_read_real("Game", "exists", 0),
+	_lives:ini_read_real("Game", "lives", 5),
+	_world:ini_read_real("Game", "world", 1),
+}
+ini_close()
+
 window_set_caption("Smileyman In Smileyland")
 room_goto_next()

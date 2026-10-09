@@ -11,7 +11,6 @@ grdfriction = 0.2
 airfriction = 0.1
 deadx = x
 deady = y
-crouch = 0;
 dead = 0
 win = 0
 oneup = 0;
@@ -48,3 +47,4 @@ afttime = 0;
 
 input_buffer_jump = 0;
 get_input();
+state = states.normal;

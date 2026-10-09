@@ -58,6 +58,6 @@ function scr_smiley_grounded(){
 	
 	if key_down
 	{
-		crouch = 1;	
+		state = states.crouch;
 	}
 }

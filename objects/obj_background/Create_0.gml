@@ -8,6 +8,12 @@ bgsprites = {
 }
 
 bgpresets = {
+	title: {
+		preset: "title",
+		bg1: {
+			spite_index: bg_menu, imge_index: 0, imge_speed: 1/3, x: 0, y: 0, vspeed: 1, hspeed: 1, xscroll: 0.6, yscroll: 0.6
+		}
+	},
 	world1: {
 		preset: "world1",
 		bg1: {

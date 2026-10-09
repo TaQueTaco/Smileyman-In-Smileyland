@@ -1,4 +1,4 @@
-if (room == titlescreen) || (room == gameover) || (room == levelselect)
+if (room == gameover) || (room == levelselect)
 	exit;
 
 switch bgsprites.preset

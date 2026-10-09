@@ -10,6 +10,9 @@ switch global.world
 	break;
 }
 
+if room == titlescreen
+	bgsprites = bgpresets.title
+
 if string_pos("Secret", room_get_name(room)) != 0
 	bgsprites = bgpresets.secret
 

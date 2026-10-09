@@ -13,6 +13,17 @@ else
 				instance_activate_all()
 				room_goto(titlescreen)
 				global.pause = 0
+				
+				ini_open("savefile.ini")
+				ini_write_real("Game", "exists", 1)
+				ini_write_real("Game", "lives", global.lives)
+				ini_write_real("Game", "world", global.world)
+				global.save = {
+					_exists:1,
+					_lives:global.lives,
+					_world:global.world
+				}
+				ini_close()
 			break;
 			case 0:
 				if (room != titlescreen)
@@ -40,6 +51,19 @@ else
 			case 4:
 				room_goto(Room1)
 			break;
+			case 5:
+				global.lives = global.save._lives
+				global.world = global.save._world
+				switch global.world
+				{
+					case 1:
+						room_goto(Room1)
+					break;
+					case 2:
+						room_goto(Room6)
+					break;
+				}
+			break;
 		}
 	}
 }
@@ -51,8 +75,8 @@ if room == gameover
 }
 else if instance_exists(obj_titlescreen)
 {
-	x = 681	
-	y = 274
+	x = 723
+	y = 258
 }
 else if instance_exists(obj_player)
 {

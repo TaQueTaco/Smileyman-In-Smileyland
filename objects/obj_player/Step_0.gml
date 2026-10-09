@@ -24,21 +24,19 @@ if key_jump2
 
 if (room == titlescreen) || (room == gameover) || (room == levelselect)
 {
+	if audio_is_playing(walksnd)
+	{
+		audio_stop_sound(walksnd)
+		walksnd = -4
+	}
+	if audio_is_playing(slidesnd)
+	{
+		audio_stop_sound(slidesnd)
+		slidesnd = -4
+	}
 	grav = 0
 	hsp = 0
 	vsp = 0
-}
-else if oneup
-{
-	scr_smiley_1up()
-}
-else if win
-{
-	scr_smiley_win()
-}
-else if dead
-{
-	scr_smiley_dead()
 }
 else
 {
@@ -46,7 +44,25 @@ else
 	grav = 0.5
 
 	image_speed = 1/6
-
+	if oneup
+	{
+		grav = 0
+		scr_smiley_1up()
+		state = states.oneup
+	}
+	else if win
+	{
+		grav = 0
+		scr_smiley_win()
+		state = states.win
+	}
+	else if dead
+	{
+		grav = 0
+		scr_smiley_dead()
+		state = states.dead
+	}
+	
 	if (wall == 0)
 	{
 		walltime = 0
@@ -58,7 +74,7 @@ else
 		}
 	}
 
-	if !grounded || crouch
+	if !grounded || (state == states.crouch)
 	{
 		if audio_is_playing(walksnd)
 		{
@@ -72,25 +88,31 @@ else
 		falltime = 0;
 		bouncetime = 0;
 	}
+	
+	switch state
+	{
+		case states.normal:
+			if (wall != 0)
+			{
+				scr_smiley_wall()
+			}
+			else if grounded
+			{
+				scr_smiley_grounded()
+			}
+			else
+			{
+				scr_smiley_air()
+			}
+		break;
+		case states.crouch:
+			scr_smiley_crouch()	
+		break;
+	}
 
-	if (wall != 0)
-	{
-		scr_smiley_wall()
-	}
-	else if crouch
-	{
-		scr_smiley_crouch()	
-	}
-	else if grounded
-	{
-		scr_smiley_grounded()
-	}
-	else
-	{
-		scr_smiley_air()
-	}
+	
 
-	if (coyote || (wall != 0)) && (input_buffer_jump) && (walltime != 30) && !crouch
+	if (coyote || (wall != 0)) && (input_buffer_jump) && (walltime != 30) && !(state == states.crouch)
 	{
 		sound_play_3d(sfx_jump, x, y, random_range(0.85, 1.15))
 		if audio_is_playing(sfx_land)
@@ -112,6 +134,6 @@ else
 audio_listener_set_position(0, -x, y, 0)
 var _g = grounded
 
-mask_index = crouch ? spr_small_mask : spr_smiley_mask
+mask_index = (state == states.crouch) ? spr_small_mask : spr_smiley_mask
 scr_collision()
 prevGrounded = _g
