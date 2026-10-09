@@ -1,12 +1,19 @@
 kill = 0;
 
+if !obj_arenadoor.active
+{
+	scr_collision()
+	exit;
+}
+
 if hp <= 0
 {
+	image_blend = c_white
 	dead = 1;
 	if wait < 200
 	{
 		wait++	
-		sprite_index = spr_smiley_dead
+		sprite_index = spr_maroon_dead
 		if wait < 180
 		{
 			var shake = floor(wait/7)
@@ -99,6 +106,9 @@ if hp <= 0
 	exit;
 }
 
+image_speed = 1/3
+grav = 0.6
+
 switch attack
 {
 	case -2:
@@ -107,7 +117,7 @@ switch attack
 			hsp = Approach(hsp, 0, 0.8)
 		if (sprite_index != spr_maroon_dead) && (sprite_index != spr_maroon_stun)
 			sprite_index = spr_maroon_stun
-		if place_meeting(x, y, obj_player) && (obj_player.vsp > 0) && (wait < 80)
+		if place_meeting(x, y, obj_player) && (obj_player.vsp > 0) && (!obj_player.grounded) && (wait < 80)
 		{
 			if hp != 1
 			{
@@ -131,7 +141,6 @@ switch attack
 				hsp = 0
 				vsp = 0;
 				hp = 0
-				
 			}
 		}
 		if (wait < 80)
@@ -139,7 +148,9 @@ switch attack
 		else if grounded && vsp >= 0
 		{
 			if sprite_index == spr_maroon_stun
-			wait = random_range(35, 55)
+				wait = random_range(35, 55)
+			else
+				wait = random_range(65, 75)
 			attack = 0
 		}
 	break;
@@ -172,44 +183,106 @@ switch attack
 		}
 	break;
 	case 1:
-		if sprite_index != spr_maroon_run
+		if sprite_index == spr_maroon_idle
 		{
-			sound_play_3d(sfx_jump, x, y, random_range(0.85, 1.15))
+			why = 3;
+			sound_play_3d(sfx_jumpbad, x, y, random_range(0.85, 1.15))
 			vsp = -6
 			sprite_index = spr_maroon_run
 		}
 		else
 		{
-			if grounded
+			switch sprite_index
 			{
-				kill = 1;
-				hsp = image_xscale * 12	
-				if place_meeting_collision(x + image_xscale, y)
-				{
-					vsp = -8
-					hsp = image_xscale * -8
-					grounded = false;
-					attack = -1
-				}
+				case spr_maroon_run:
+				case spr_maron_runjump2:
+					kill = 1;
+					if grounded && vsp >= 0
+					{
+						if sprite_index != spr_maroon_run
+						{
+							hsp = image_xscale * 9
+							sprite_index = spr_maroon_run
+						}
+						if steppy
+							steppy--
+						else
+						{
+							with instance_create_depth(x, bbox_bottom, depth + 1, obj_playonce)	
+							{
+								sprite_index = spr_runcloud_maroon
+								image_speed = 1/3
+								hspeed = other.image_xscale * -3
+							}
+							steppy = 7
+						}
+						if abs(hsp) < 9
+							hsp = image_xscale * 9
+						else
+							hsp = Approach(hsp, image_xscale * 18, 0.2)
+							
+						if place_meeting(x + (image_xscale * 240), obj_player.y, obj_player) && what
+						{
+							what = 0
+							sprite_index = spr_maron_runjump
+							image_index = 0
+							hsp = 0
+						}
+					}
+					else if abs(hsp) < 9
+						hsp = image_xscale * 9
+				break;
+				case spr_maron_runturn:
+					kill = 1;
+					hsp = Approach(hsp, 0, 0.7)
+					if anim_end()
+					{
+						sprite_index = spr_maroon_run
+						hsp = image_xscale * 9
+						what = (irandom(2) == 0)
+					}
+				break;
+				case spr_maron_runjump:
+					hsp = 0
+					if anim_end()
+					{
+						sprite_index = spr_maron_runjump2
+						hsp = image_xscale * 18
+						vsp = -9
+					}
+				break;
+			}
+			if place_meeting_collision(x + (image_xscale * 256), y) && why && grounded && sprite_index != spr_maron_runturn
+			{
+				why--
+				image_xscale *= -1
+				sprite_index = spr_maron_runturn
+			}
+			else if place_meeting_collision(x + image_xscale, y)
+			{
+				vsp = -8
+				hsp = image_xscale * -8
+				grounded = false;
+				attack = -1
 			}
 		}
 	break;
 	case 2:
-		if (sprite_index != spr_smiley_jump) && (sprite_index != spr_smiley_fall1) && (sprite_index != spr_smiley_fall2)
+		if (sprite_index == spr_maroon_idle)
 		{
-			sound_play_3d(sfx_jump, x, y, random_range(0.85, 1.15))
+			sound_play_3d(sfx_jumpbad, x, y, random_range(0.85, 1.15))
 			sprite_index = spr_smiley_jump
 			image_index = 0
-			vsp = -21
+			vsp = -32
+			what = 0;
 		}
 		else
 		{
+			hsp = Approach(hsp, obj_player.x - x, 0.2)
 			switch sprite_index
 			{
 				case spr_smiley_jump:
 					vsp = min(vsp, -0.6)
-					hsp = 0
-					x = lerp(x, obj_player.x, 0.1)
 					if anim_end()
 					{
 						wait = irandom_range(45, 120)
@@ -217,25 +290,68 @@ switch attack
 					}
 				break;
 				case spr_smiley_fall1:
-					if wait
+					if !vsp
 					{
-						wait--	
-						vsp = min(vsp, -0.6)
-						x = lerp(x, obj_player.x, 0.1)
+						vsp += 0.3
+						if (abs(x - obj_player.x) < 64) 
+						{
+							vsp += 0.5
+						}
 					}
 					else
 					{
 						sprite_index = spr_smiley_fall2
-						vsp = 20
 					}
 				break;
 				case spr_smiley_fall2:
 					kill = 1;
 					if grounded
 					{
-						vsp = -8
-						grounded = false;
-						attack = -1
+						what++
+						sound_play_3d(sfx_slam, x, bbox_bottom, random_range(0.85, 1.15))
+						with instance_create_depth(0,0,0, obj_camshake)
+						{
+							intens = 7
+							time = 15
+						}
+						with instance_create_depth(x, bbox_bottom, depth, obj_maroonshockwave)
+						{
+							hspeed = 14	
+						}
+						with instance_create_depth(x, bbox_bottom, depth, obj_maroonshockwave)
+						{
+							image_xscale = -1
+							hspeed = -14	
+						}
+						image_speed = 1/6
+						sprite_index = spr_smiley_land
+						image_index = 0
+					}
+					else
+					{
+						vsp += 0.8
+						vsp = clamp(vsp, 0, 20)	
+						hsp = Approach(hsp, sign(obj_player.x - x), 0.4)
+					}
+				break;
+				case spr_smiley_land:
+					hsp = 0
+					image_speed = 1/6
+					if anim_end()
+					{
+						if what == 3
+						{
+							vsp = -8
+							grounded = false;
+							attack = -1
+						}
+						else
+						{
+							sound_play_3d(sfx_jumpbad, x, y, random_range(0.85, 1.15))
+							sprite_index = spr_smiley_jump
+							image_index = 0
+							vsp = -32
+						}
 					}
 				break;
 			}
@@ -245,21 +361,38 @@ switch attack
 		kill = (vsp >= 4);
 		if sprite_index != spr_maroon_spin
 		{
+			what = 0;
 			sound_play_3d(sfx_jump, x, y, random_range(0.85, 1.15))
 			sprite_index = spr_maroon_spin
-			vsp = -16
+			vsp = -17
 			wait = 0
 		}
 		if grounded && vsp >= 0
 		{
+			if what
+				what = 2
 			sound_play_3d(sfx_jump, x, y, random_range(0.85, 1.15))
 			image_index = 0;
 			hsp = image_xscale * 8
 			wait++
-			vsp = -16
+			vsp = -17
 		}
 		else
-			hsp += image_xscale * 0.1
+		{
+			if place_meeting(x, obj_player.y, obj_player) && (vsp >= 0) && !what
+			{
+				what = 1
+				vsp = -5
+			}
+			
+			if what != 1
+				hsp += image_xscale * 0.1
+			else
+			{
+				vsp += 0.2
+				hsp = 0	
+			}
+		}
 		
 		if place_meeting_collision(x + image_xscale, y)
 		{

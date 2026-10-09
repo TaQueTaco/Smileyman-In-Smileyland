@@ -8,6 +8,6 @@ options = [
 	{_name: "S", _title: 0, goto:Secret1},
 	{_name: "B", _title: 0, goto:Boss1},
 	{_name: "WETWORLD", _title: 2},
-	{_name: "1", _title: 0, goto:Room6},
+	{_name: "1", _title: 0, goto:RoomB1},
 ]
 sel = 1;

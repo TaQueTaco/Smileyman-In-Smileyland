@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":48.607597,
+  "duration":16.161451,
   "exportDir":"",
   "name":"mus_levelselect",
   "parent":{

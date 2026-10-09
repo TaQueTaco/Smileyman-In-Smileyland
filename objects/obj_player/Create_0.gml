@@ -19,6 +19,7 @@ grav = 0.5
 coyote = 0;
 wall = 0;
 walltime = 0;
+steppy = 0;
 
 falltime = 0;
 

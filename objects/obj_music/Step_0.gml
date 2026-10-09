@@ -29,6 +29,16 @@ if instance_exists(obj_titlescreen)
 	}
 }
 
+if instance_exists(obj_arenadoor)
+{
+	if !obj_arenadoor.active
+	{
+		if audio_is_playing(musicid)	
+			audio_stop_sound(musicid)
+		exit;
+	}
+}
+
 if instance_exists(par_boss)
 {
 	if par_boss.hp == 0

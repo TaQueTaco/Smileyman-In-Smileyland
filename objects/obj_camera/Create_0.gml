@@ -6,3 +6,5 @@ deadflash = 0
 lifeflash = 0
 showblue = 0;
 blueindex = 0;
+_minx = 0;
+_maxy = 0;

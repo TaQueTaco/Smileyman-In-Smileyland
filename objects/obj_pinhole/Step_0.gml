@@ -18,10 +18,12 @@ else
 				ini_write_real("Game", "exists", 1)
 				ini_write_real("Game", "lives", global.lives)
 				ini_write_real("Game", "world", global.world)
+				ini_write_real("Game", "secrets", global.secrets)
 				global.save = {
 					_exists:1,
 					_lives:global.lives,
-					_world:global.world
+					_world:global.world,
+					_secrets:global.secrets
 				}
 				ini_close()
 			break;
@@ -54,6 +56,7 @@ else
 			case 5:
 				global.lives = global.save._lives
 				global.world = global.save._world
+				global.secrets = global.save._secrets
 				switch global.world
 				{
 					case 1:

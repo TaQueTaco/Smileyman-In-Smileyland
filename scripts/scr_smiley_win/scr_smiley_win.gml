@@ -63,6 +63,7 @@ function scr_smiley_win(){
 					sprite_index = spr_smiley_win
 					if (alarm[0] == -1) && !instance_exists(obj_pinhole)
 					{
+						global.secrets++
 						alarm[0] = _lengt + _points
 						audio_play_sound((string_pos("Boss", room_get_name(room)) != 0) ? mus_winboss : mus_win, 1, 0, global.mus_vol, 0);
 					}	

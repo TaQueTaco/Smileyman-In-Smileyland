@@ -38,6 +38,22 @@ function scr_smiley_grounded(){
 		
 			sprite_index = (abs(hsp) >= runspd) ? runspr : walkspr
 		}
+		
+		if sprite_index == runspr
+		{
+			if steppy
+				steppy--
+			else
+			{
+				with instance_create_depth(x - (xscale * 16), bbox_bottom, depth + 1, obj_playonce)	
+				{
+					sprite_index = spr_runcloud
+					image_speed = 1/3
+					hspeed = other.xscale * -3
+				}
+				steppy = 7
+			}	
+		}
 	}
 	else if !landAnim
 	{
