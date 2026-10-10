@@ -21,7 +21,13 @@ switch room
 		str = string_concat(str, "HI SPAUL!")
 	break;
 	case Room4:
-		str = string_concat(str, "WELCOME 2")
+		str = string_concat(str, "GOING DONUTS")
+	break;
+	case Room5:
+		str = string_concat(str, "IN A PACK")
+	break;
+	case Secret1:
+		str = string_concat(str, "SMILEYLAND SECRET")
 	break;
 	case Boss1:
 		str = string_concat(str, "MAROON MORON")
