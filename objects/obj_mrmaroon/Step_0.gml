@@ -115,6 +115,24 @@ if hp <= 0
 image_speed = 1/3
 grav = 0.6
 
+if (sprite_index == spr_maroon_run) || (sprite_index == spr_maron_runjump2)
+{
+	if runsnd == -4
+	{
+		runsnd = audio_emitter_create();
+		audio_play_sound_on(runsnd, sfx_marunning, 1, 1, global.sfx_vol)
+		audio_emitter_falloff(runsnd, 512, 1024, 0.05,)
+		audio_emitter_position(runsnd, -x, y, 0);
+	}
+	else
+		audio_emitter_position(runsnd, -x, y, 0);
+}
+else if runsnd != -4
+{
+	audio_emitter_free(runsnd)
+	runsnd = -4
+}
+
 switch attack
 {
 	case -2:
@@ -273,6 +291,12 @@ switch attack
 				hsp = image_xscale * -8
 				grounded = false;
 				attack = -1
+				sound_play_3d(sfx_slam, x, y, random_range(0.85, 1.15))
+				with instance_create_depth(0,0,0, obj_camshake)
+				{
+					intens = 7
+					time = 15
+				}
 			}
 		}
 	break;

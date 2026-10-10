@@ -10,3 +10,4 @@ kill = 0;
 hp = 8
 terminalVelocity = 15
 steppy = 0;
+runsnd = -4;

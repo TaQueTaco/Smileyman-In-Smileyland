@@ -534,6 +534,7 @@
     {"id":{"name":"sfx_jumpbad","path":"sounds/sfx_jumpbad/sfx_jumpbad.yy",},},
     {"id":{"name":"sfx_land","path":"sounds/sfx_land/sfx_land.yy",},},
     {"id":{"name":"sfx_maroonturn","path":"sounds/sfx_maroonturn/sfx_maroonturn.yy",},},
+    {"id":{"name":"sfx_marunning","path":"sounds/sfx_marunning/sfx_marunning.yy",},},
     {"id":{"name":"sfx_poke","path":"sounds/sfx_poke/sfx_poke.yy",},},
     {"id":{"name":"sfx_slam","path":"sounds/sfx_slam/sfx_slam.yy",},},
     {"id":{"name":"sfx_slide","path":"sounds/sfx_slide/sfx_slide.yy",},},
