@@ -4,4 +4,5 @@ vissel = 0;
 winky = 0;
 start = 0;
 prettysurethrewatrashbagintospaceatwork = 0;
+areyousure = 0;
 get_input();

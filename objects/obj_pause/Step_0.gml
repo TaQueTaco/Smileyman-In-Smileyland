@@ -38,6 +38,39 @@ if global.pause
 	else
 		blueindex = frac(blueindex)
 	alpha = lerp(alpha, 1, 0.2)
+	
+	if prettysurethrewatrashbagintospaceatwork
+	{
+		if prettysurethrewatrashbagintospaceatwork == 2
+		{
+			prettysurethrewatrashbagintospaceatwork = 1
+			areyousure = 0
+			exit;	
+		}
+		
+		areyousure = clamp(areyousure + (key_right2 - key_left2), 0, 1)	
+	
+		if (key_right2 - key_left2) != 0
+			sound_play(sfx_poke, random_range(0.85, 1.15))
+		
+		if key_accept
+		{
+			if areyousure
+			{
+				prettysurethrewatrashbagintospaceatwork = 0
+				sound_play(sfx_poke2, random_range(0.75, 1.05))
+				sound_play(sfx_fadeout)
+				audio_stop_sound(music)
+				music = -4
+				with instance_create_depth(camera_get_view_x(view_camera[0]) + 480, camera_get_view_y(view_camera[0]) + 270, depth - 1, obj_pinhole)
+					transition = -1	
+			}
+			else
+				prettysurethrewatrashbagintospaceatwork = 0
+		}
+		exit;
+	}
+	
 	if instance_exists(obj_settings)
 		exit;
 	
@@ -50,6 +83,7 @@ if global.pause
 	
 	if key_accept
 	{
+		sound_play(sfx_poke2, random_range(0.75, 1.05))
 		switch sel
 		{
 			case 0:
@@ -63,10 +97,7 @@ if global.pause
 				instance_create_depth(x, y, -999, obj_settings)
 			break;
 			case 2:
-				audio_stop_sound(music)
-				music = -4
-				with instance_create_depth(x, y, -999, obj_pinhole)
-					transition = -1
+				prettysurethrewatrashbagintospaceatwork = 2
 			break;
 		}
 	}

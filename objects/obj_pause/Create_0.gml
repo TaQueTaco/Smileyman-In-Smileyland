@@ -10,4 +10,5 @@ get_input()
 depth = -998
 picture = -4;
 blueindex = 0;
+areyousure = 0;
 prettysurethrewatrashbagintospaceatwork = 0;

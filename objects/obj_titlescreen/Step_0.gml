@@ -2,7 +2,44 @@ get_input();
 
 vissel = lerp(vissel, select, 0.1)
 
-if settings
+if prettysurethrewatrashbagintospaceatwork
+{
+	if prettysurethrewatrashbagintospaceatwork == 2
+	{
+		areyousure = 0;
+		prettysurethrewatrashbagintospaceatwork = 1
+		exit;
+	}
+	areyousure = clamp(areyousure + (key_right2 - key_left2), 0, 1)	
+	
+	if (key_right2 - key_left2) != 0
+		sound_play(sfx_poke, random_range(0.85, 1.15))
+	
+	if key_accept
+	{
+		sound_play(sfx_poke2, random_range(0.75, 1.05))
+		if areyousure
+		{
+			switch select
+			{
+				case 0:
+					prettysurethrewatrashbagintospaceatwork = 0
+					sound_play(sfx_wink)
+					winky = 1
+					instance_create_depth(832,160,depth,obj_titlestar)
+					sprite_index = spr_titlesmiley_winky
+					image_index = 0
+				break;
+				case 4:
+					game_end()
+				break;
+			}
+		}
+		else
+			prettysurethrewatrashbagintospaceatwork = 0
+	}
+}
+else if settings
 {
 	if !instance_exists(obj_settings)
 		settings = 0
@@ -37,16 +74,24 @@ else
 	
 	if key_accept
 	{
+		sound_play(sfx_poke2, random_range(0.75, 1.05))
 		switch select	
 		{
 			case 0:
 				if !(key_run && key_down && key_up)
 				{
-					sound_play(sfx_wink)
-					winky = 1
-					instance_create_depth(832,160,depth,obj_titlestar)
-					sprite_index = spr_titlesmiley_winky
-					image_index = 0
+					if global.save._exists
+					{
+						prettysurethrewatrashbagintospaceatwork = 2
+					}
+					else
+					{
+						sound_play(sfx_wink)
+						winky = 1
+						instance_create_depth(832,160,depth,obj_titlestar)
+						sprite_index = spr_titlesmiley_winky
+						image_index = 0
+					}
 				}
 				else
 					room_goto(levelselect);
@@ -73,7 +118,7 @@ else
 				room_goto(levelselect);
 			break;
 			case 4:
-				game_end()
+				prettysurethrewatrashbagintospaceatwork = 2
 			break;
 		}
 	}
