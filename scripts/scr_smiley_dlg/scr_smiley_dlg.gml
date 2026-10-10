@@ -1,4 +1,6 @@
 function scr_smiley_dlg(){
+	if !instance_exists(obj_bossdialogue)
+		exit;
 	if grounded
 	{
 		var dir = 1
@@ -58,7 +60,9 @@ function scr_smiley_dlg(){
 				audio_stop_sound(walksnd)
 				walksnd = -4
 			}
-			sprite_index = idlespr
+			var talking = obj_bossdialogue.smiley && !obj_bossdialogue.donetalking
+			image_speed = talking ? (1/3) : (1/6)
+			sprite_index = talking ? talkspr : idlespr
 		}
 	}
 	else

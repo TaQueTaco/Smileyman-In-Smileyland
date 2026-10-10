@@ -52,3 +52,5 @@ switch room
 			window_set_caption("Smileyman In " + _world + ", Boss")
 	break;
 }
+if (string_pos("Boss", room_get_name(room)) == 0)
+	global.checkpoint = 0;

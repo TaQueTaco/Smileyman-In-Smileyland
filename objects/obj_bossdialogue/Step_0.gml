@@ -11,11 +11,12 @@ else
 	{
 		if textl < (string_length(dialogue[index].txt) + 1)
 		{
+			donetalking = 0;
 			if time
 				time--
 			else
 			{
-				time = 6
+				time = 4
 				text = string_delete(dialogue[index].txt, textl + 1, string_length(dialogue[index].txt) - textl)
 				textl++
 				if !array_contains(untalkables, string_char_at(text, textl))
@@ -32,18 +33,29 @@ else
 				}
 			}
 			
+			smiley = (string_pos("smiley", sprite_get_name(dialogue[index].spr)) != 0)
+			
+			if (string_pos("maroon", sprite_get_name(dialogue[index].spr)) != 0) || (string_pos("neutral", sprite_get_name(dialogue[index].spr)) != 0) || (string_pos("frowny", sprite_get_name(dialogue[index].spr)) != 0)
+				bossy = true
+			else
+				bossy = false
+			
 			if key_run2
 			{
 				textl = string_length(dialogue[index].txt) + 1
 				text = dialogue[index].txt
 			}
 		}
-		else if key_jump2
+		else 
 		{
-			index++
-			text = ""
-			textl = 0
-			time = 6
+			donetalking = 1;
+			if key_jump2
+			{
+				index++
+				text = ""
+				textl = 0
+				time = 4
+			}
 		}
 	}
 }

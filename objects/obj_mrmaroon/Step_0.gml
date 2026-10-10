@@ -2,6 +2,12 @@ kill = 0;
 
 if !obj_arenadoor.active || instance_exists(obj_bossdialogue)
 {
+	if instance_exists(obj_bossdialogue)
+	{
+		var talking = obj_bossdialogue.bossy && !obj_bossdialogue.donetalking
+		image_speed = talking ? (1/3) : (1/6)
+		sprite_index = talking ? spr_smiley_talk : spr_maroon_idle
+	}
 	scr_collision()
 	exit;
 }
@@ -143,7 +149,7 @@ switch attack
 				hp = 0
 			}
 		}
-		if (wait < 80)
+		if (wait < 140)
 			wait++
 		else if grounded && vsp >= 0
 		{
@@ -223,6 +229,7 @@ switch attack
 							
 						if place_meeting(x + (image_xscale * 240), obj_player.y, obj_player) && what
 						{
+							sound_play_3d(sfx_blip_maroon, x, y, random_range(0.4, 0.6))
 							what = 0
 							sprite_index = spr_maron_runjump
 							image_index = 0
@@ -246,6 +253,7 @@ switch attack
 					hsp = 0
 					if anim_end()
 					{
+						sound_play_3d(sfx_sproing, x, y, random_range(0.6, 1.8))
 						sprite_index = spr_maron_runjump2
 						hsp = image_xscale * 18
 						vsp = -9
@@ -254,6 +262,7 @@ switch attack
 			}
 			if place_meeting_collision(x + (image_xscale * 256), y) && why && grounded && sprite_index != spr_maron_runturn
 			{
+				sound_play_3d(sfx_maroonturn, x, y, random_range(0.9, 1.1))
 				why--
 				image_xscale *= -1
 				sprite_index = spr_maron_runturn
@@ -270,7 +279,7 @@ switch attack
 	case 2:
 		if (sprite_index == spr_maroon_idle)
 		{
-			sound_play_3d(sfx_jumpbad, x, y, random_range(0.85, 1.15))
+			sound_play_3d(sfx_sproing, x, y, random_range(0.6, 1.8))
 			sprite_index = spr_smiley_jump
 			image_index = 0
 			vsp = -32
@@ -347,7 +356,7 @@ switch attack
 						}
 						else
 						{
-							sound_play_3d(sfx_jumpbad, x, y, random_range(0.85, 1.15))
+							sound_play_3d(sfx_sproing, x, y, random_range(0.6, 1.8))
 							sprite_index = spr_smiley_jump
 							image_index = 0
 							vsp = -32

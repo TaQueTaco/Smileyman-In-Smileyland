@@ -31,6 +31,7 @@ walksnd = -4
 
 idlespr = spr_smiley_idle
 walkspr = spr_smiley_walk
+talkspr = spr_smiley_talk
 runspr = spr_smiley_run
 jumpspr = spr_smiley_jump
 fallspr1 = spr_smiley_fall1

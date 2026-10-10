@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"sfx_blip_smiley5",
+  "%Name":"sfx_blip_maroon",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,17 +10,17 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.42918366,
+  "duration":0.42857143,
   "exportDir":"",
-  "name":"sfx_blip_smiley5",
+  "name":"sfx_blip_maroon",
   "parent":{
-    "name":"Smileyman",
-    "path":"folders/Sounds/Dialogue/Smileyman.yy",
+    "name":"Dialogue",
+    "path":"folders/Sounds/Dialogue.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"sfx_blip_smiley5.mp3",
-  "volume":0.5,
+  "soundFile":"sfx_blip_maroon.wav",
+  "volume":1.0,
 }
