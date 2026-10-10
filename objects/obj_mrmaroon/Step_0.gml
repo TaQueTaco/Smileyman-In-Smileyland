@@ -123,7 +123,7 @@ switch attack
 			hsp = Approach(hsp, 0, 0.8)
 		if (sprite_index != spr_maroon_dead) && (sprite_index != spr_maroon_stun)
 			sprite_index = spr_maroon_stun
-		if place_meeting(x, y, obj_player) && (obj_player.vsp > 0) && (!obj_player.grounded) && (wait < 80)
+		if place_meeting(x, y, obj_player) && (obj_player.vsp > 0) && (!obj_player.grounded) && (sprite_index != spr_maroon_dead)
 		{
 			if hp != 1
 			{
@@ -207,7 +207,7 @@ switch attack
 					{
 						if sprite_index != spr_maroon_run
 						{
-							hsp = image_xscale * 9
+							hsp = image_xscale * 12
 							sprite_index = spr_maroon_run
 						}
 						if steppy
@@ -227,9 +227,9 @@ switch attack
 						else
 							hsp = Approach(hsp, image_xscale * 18, 0.2)
 							
-						if place_meeting(x + (image_xscale * 240), obj_player.y, obj_player) && what
+						if place_meeting(x + (image_xscale * 256), obj_player.y, obj_player) && what
 						{
-							sound_play_3d(sfx_blip_maroon, x, y, random_range(0.4, 0.6))
+							sound_play_3d(sfx_blip_maroon, x, y, random_range(0.6, 0.8))
 							what = 0
 							sprite_index = spr_maron_runjump
 							image_index = 0
@@ -256,7 +256,7 @@ switch attack
 						sound_play_3d(sfx_sproing, x, y, random_range(0.6, 1.8))
 						sprite_index = spr_maron_runjump2
 						hsp = image_xscale * 18
-						vsp = -9
+						vsp = -12
 					}
 				break;
 			}
