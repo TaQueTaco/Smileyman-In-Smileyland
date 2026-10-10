@@ -9,6 +9,7 @@ if (obj_player.x > ((x + (image_xscale * 64)) + 32)) && !visible
 		image_xscale = other.image_xscale
 		image_yscale = other.image_yscale * 3
 	}
+	instance_create_depth(0, 0, -10000, obj_bossdialogue)
 }
 
 if visible && !active

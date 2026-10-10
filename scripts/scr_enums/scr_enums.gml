@@ -5,6 +5,7 @@ enum states
 	win,
 	dead,
 	oneup,
+	dlg,
 	glide,
 	
 }

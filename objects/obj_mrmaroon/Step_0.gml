@@ -1,6 +1,6 @@
 kill = 0;
 
-if !obj_arenadoor.active
+if !obj_arenadoor.active || instance_exists(obj_bossdialogue)
 {
 	scr_collision()
 	exit;

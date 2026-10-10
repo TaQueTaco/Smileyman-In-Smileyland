@@ -44,6 +44,14 @@ else
 	grav = 0.5
 
 	image_speed = 1/6
+	if instance_exists(obj_bossdialogue) || state == states.dlg
+	{
+		grav = 0.6
+		scr_smiley_dlg()
+		state = states.dlg	
+		if !instance_exists(obj_bossdialogue)
+			state = states.normal
+	}
 	if oneup
 	{
 		grav = 0.6
@@ -112,7 +120,7 @@ else
 
 	
 
-	if (coyote || (wall != 0)) && (input_buffer_jump) && (walltime != 30) && !(state == states.crouch)
+	if (coyote || (wall != 0)) && (input_buffer_jump) && (walltime != 30) && !(state == states.dlg) && !(state == states.crouch)
 	{
 		sound_play_3d(sfx_jump, x, y, random_range(0.85, 1.15))
 		if audio_is_playing(sfx_land)

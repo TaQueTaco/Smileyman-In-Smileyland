@@ -17,6 +17,6 @@ switch room
 		music = mus_secret
 	break;
 	case Boss1:
-		music = mus_boss
+		music = instance_exists(obj_bossdialogue) ? mus_dialogue : mus_boss
 	break;
 }
