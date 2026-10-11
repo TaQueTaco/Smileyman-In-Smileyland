@@ -591,6 +591,7 @@
     {"id":{"name":"spr_smiley_dead","path":"sprites/spr_smiley_dead/spr_smiley_dead.yy",},},
     {"id":{"name":"spr_smiley_fall1","path":"sprites/spr_smiley_fall1/spr_smiley_fall1.yy",},},
     {"id":{"name":"spr_smiley_fall2","path":"sprites/spr_smiley_fall2/spr_smiley_fall2.yy",},},
+    {"id":{"name":"spr_smiley_fall3","path":"sprites/spr_smiley_fall3/spr_smiley_fall3.yy",},},
     {"id":{"name":"spr_smiley_gibs","path":"sprites/spr_smiley_gibs/spr_smiley_gibs.yy",},},
     {"id":{"name":"spr_smiley_idle","path":"sprites/spr_smiley_idle/spr_smiley_idle.yy",},},
     {"id":{"name":"spr_smiley_jump","path":"sprites/spr_smiley_jump/spr_smiley_jump.yy",},},

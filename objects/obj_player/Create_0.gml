@@ -36,6 +36,7 @@ runspr = spr_smiley_run
 jumpspr = spr_smiley_jump
 fallspr1 = spr_smiley_fall1
 fallspr2 = spr_smiley_fall2
+fallspr3 = spr_smiley_fall3
 wallspr = spr_smiley_wallslide
 walllandspr = spr_smiley_wallslideland
 landspr = spr_smiley_land

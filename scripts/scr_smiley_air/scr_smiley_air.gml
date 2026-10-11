@@ -22,18 +22,26 @@ function scr_smiley_air(){
 		}
 	}
 	
-	if (sprite_index != jumpspr) && (sprite_index != fallspr1) && (sprite_index != fallspr2)
+	if key_down2
+	{
+		sprite_index = fallspr3
+	}
+	
+	if (sprite_index != jumpspr) && (sprite_index != fallspr1) && (sprite_index != fallspr2) && (sprite_index != fallspr3)
 	{
 		jumpstop = 1
 		sprite_index = fallspr2
 	}
+	
+	if (sprite_index == fallspr3)
+		vsp += 0.4
 	
 	if (sprite_index == jumpspr)
 	{
 		if anim_end()
 			sprite_index = fallspr1
 	}
-	else
+	else if (sprite_index != fallspr3)
 		sprite_index = (falltime >= 60) ? fallspr2 : fallspr1
 	
 	if (vsp > 0)

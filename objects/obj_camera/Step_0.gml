@@ -6,6 +6,7 @@ if instance_exists(obj_arenadoor)
 	if obj_arenadoor.active
 	{
 		_minx = lerp(_minx, obj_arenadoor.x, 0.1)	
+		_miny = lerp(_miny, obj_arenadoor.y - 576, 0.1)
 		_maxy = lerp(_maxy, obj_arenadoor.bbox_bottom - 412, 0.1)
 	}
 }
@@ -38,7 +39,7 @@ if instance_exists(obj_camshake)
 }
 
 x = clamp(x, _minx, room_width - 960)
-y = clamp(y, 0, _maxy)
+y = clamp(y, _miny, _maxy)
 
 camera_set_view_pos(view_camera[0], x, y)
 
