@@ -627,6 +627,7 @@
     {"id":{"name":"pmo_secret","path":"tilesets/pmo_secret/pmo_secret.yy",},},
     {"id":{"name":"pmo_test","path":"tilesets/pmo_test/pmo_test.yy",},},
     {"id":{"name":"pmo_world1","path":"tilesets/pmo_world1/pmo_world1.yy",},},
+    {"id":{"name":"TileSet4","path":"tilesets/TileSet4/TileSet4.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
