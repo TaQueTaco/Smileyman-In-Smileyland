@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_smiley_cutscene",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_smiley_cutscene",
+  "parent":{
+    "name":"Smileyman",
+    "path":"folders/Scripts/Smileyman.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

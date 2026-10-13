@@ -38,6 +38,12 @@ if (room == titlescreen) || (room == gameover) || (room == levelselect)
 	hsp = 0
 	vsp = 0
 }
+else if (string_pos("Cutscene", room_get_name(room)) != 0)
+{
+	image_alpha = 1
+	grav = 0.5
+	scr_smiley_cutscene()
+}
 else
 {
 	image_alpha = 1

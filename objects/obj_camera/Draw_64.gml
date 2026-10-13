@@ -1,4 +1,4 @@
-if (room == titlescreen) || (room == gameover) || (room == levelselect)
+if (room == titlescreen) || (room == gameover) || (room == levelselect) || (string_pos("Cutscene", room_get_name(room)) != 0)
 	exit;
 
 draw_set_alpha(1)

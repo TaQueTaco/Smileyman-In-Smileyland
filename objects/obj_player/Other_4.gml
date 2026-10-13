@@ -1,6 +1,8 @@
 if instance_exists(obj_spawnpoint)
 {
 	state = states.normal
+	hsp = 0
+	vsp = 0
 	image_alpha = 1
 	dead = 0
 	win = 0
@@ -10,6 +12,11 @@ if instance_exists(obj_spawnpoint)
 	y = obj_spawnpoint.y
 	scr_collision()
 	prevGrounded = grounded
+	if !grounded
+	{
+		vsp = 4;
+		sprite_index = fallspr1
+	}
 	if (room != gameover) && (room != levelselect)
 	{
 		sound_play(sfx_fadein)

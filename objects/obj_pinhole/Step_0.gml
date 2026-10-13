@@ -29,7 +29,12 @@ else
 			break;
 			case 0:
 				if (room != titlescreen)
-					instance_create_depth(0, 64, -999, obj_roomtitle)
+				{
+					if (string_pos("Cutscene", room_get_name(room)) == 0)
+						instance_create_depth(0, 64, -999, obj_roomtitle)
+					else
+						instance_create_depth(0, 64, -999, obj_worldtitle)
+				}
 				instance_destroy()
 			break;
 			case 1:
@@ -51,7 +56,7 @@ else
 				global.bluecoins_world = 0;
 			break;
 			case 4:
-				room_goto(Room1)
+				room_goto(Cutscene1)
 			break;
 			case 5:
 				global.lives = global.save._lives

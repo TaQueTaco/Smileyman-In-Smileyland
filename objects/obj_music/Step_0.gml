@@ -49,7 +49,7 @@ if instance_exists(par_boss)
 	}
 }
 
-if room == gameover
+if (room == gameover) || (string_pos("Cutscene", room_get_name(room)) != 0)
 {
 	if audio_is_playing(musicid)	
 		audio_stop_sound(musicid)
