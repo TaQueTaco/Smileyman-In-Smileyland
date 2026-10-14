@@ -609,6 +609,7 @@
     {"id":{"name":"spr_smiley_wallslideland","path":"sprites/spr_smiley_wallslideland/spr_smiley_wallslideland.yy",},},
     {"id":{"name":"spr_smiley_win","path":"sprites/spr_smiley_win/spr_smiley_win.yy",},},
     {"id":{"name":"spr_solid","path":"sprites/spr_solid/spr_solid.yy",},},
+    {"id":{"name":"spr_spaul_mask","path":"sprites/spr_spaul_mask/spr_spaul_mask.yy",},},
     {"id":{"name":"spr_spaul","path":"sprites/spr_spaul/spr_spaul.yy",},},
     {"id":{"name":"spr_spawnpoint","path":"sprites/spr_spawnpoint/spr_spawnpoint.yy",},},
     {"id":{"name":"spr_spike_mask","path":"sprites/spr_spike_mask/spr_spike_mask.yy",},},

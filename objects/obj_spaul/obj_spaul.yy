@@ -40,8 +40,8 @@
     "path":"sprites/spr_spaul/spr_spaul.yy",
   },
   "spriteMaskId":{
-    "name":"spr_small_mask",
-    "path":"sprites/spr_small_mask/spr_small_mask.yy",
+    "name":"spr_spaul_mask",
+    "path":"sprites/spr_spaul_mask/spr_spaul_mask.yy",
   },
   "visible":true,
 }

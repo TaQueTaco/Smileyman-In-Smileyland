@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":4.5052156,
+  "duration":2.3124943,
   "exportDir":"",
   "name":"mus_world1jingle",
   "parent":{
@@ -22,5 +22,5 @@
   "resourceVersion":"2.0",
   "sampleRate":44100,
   "soundFile":"mus_world1jingle.wav",
-  "volume":0.67,
+  "volume":1.0,
 }

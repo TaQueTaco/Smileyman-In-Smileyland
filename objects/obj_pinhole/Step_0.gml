@@ -32,8 +32,6 @@ else
 				{
 					if (string_pos("Cutscene", room_get_name(room)) == 0)
 						instance_create_depth(0, 64, -999, obj_roomtitle)
-					else
-						instance_create_depth(0, 64, -999, obj_worldtitle)
 				}
 				instance_destroy()
 			break;
