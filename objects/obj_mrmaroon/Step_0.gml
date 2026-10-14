@@ -325,6 +325,7 @@ switch attack
 				case spr_smiley_fall1:
 					if !vsp
 					{
+						hsp = Approach(hsp, obj_player.x - x, 0.2)
 						vsp += 0.3
 						if (abs(x - obj_player.x) < 64) 
 						{
@@ -363,8 +364,7 @@ switch attack
 					else
 					{
 						vsp += 0.8
-						vsp = clamp(vsp, 0, 20)	
-						hsp = Approach(hsp, sign(obj_player.x - x), 0.4)
+						vsp = clamp(vsp, 0, 20)
 					}
 				break;
 				case spr_smiley_land:
