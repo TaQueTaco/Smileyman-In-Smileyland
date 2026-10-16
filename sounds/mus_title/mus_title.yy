@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":45.99406,
+  "duration":91.4881,
   "exportDir":"",
   "name":"mus_title",
   "parent":{
