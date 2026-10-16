@@ -73,8 +73,17 @@ else
 		}
 	}
 }
-
-if room == gameover
+if global.pause
+{
+	x = camera_get_view_x(view_camera[0]) + 480
+	y = camera_get_view_x(view_camera[0]) + 270
+}
+else if (string_pos("Cutscene", room_get_name(room)) != 0)
+{
+	x = (room_width / 2)
+	y = 270
+}
+else if room == gameover
 {
 	x = 480
 	y = 270

@@ -38,10 +38,17 @@ if instance_exists(obj_camshake)
 	}
 }
 
+if (string_pos("Cutscene", room_get_name(room)) != 0)
+{
+	x = (room_width / 2) - 480
+	y = 0
+}
+
 x = clamp(x, _minx, room_width - 960)
 y = clamp(y, _miny, _maxy)
 
 camera_set_view_pos(view_camera[0], x, y)
+audio_listener_set_position(0, -(x + 480), (y + 270), 0)
 
 if deadflash > 0
 	deadflash -= 0.08

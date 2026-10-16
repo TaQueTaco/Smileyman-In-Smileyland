@@ -145,7 +145,6 @@ else
 		}
 	}	
 }
-audio_listener_set_position(0, -x, y, 0)
 var _g = grounded
 
 mask_index = (state == states.crouch) ? spr_small_mask : spr_smiley_mask

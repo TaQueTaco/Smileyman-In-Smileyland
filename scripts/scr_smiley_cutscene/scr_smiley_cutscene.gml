@@ -5,21 +5,20 @@ function scr_smiley_cutscene()
 		audio_stop_sound(walksnd)
 		walksnd = -4
 	}
-	hsp = xscale * runspd
-	sprite_index = runspr
-	image_speed = (1/3)
-	if steppy
-		steppy--
+	hsp = xscale * walkspd
+	if grounded
+	{
+		sprite_index = walkspr
+		image_speed = (1/6)
+	}
 	else
 	{
-		with instance_create_depth(x - (xscale * 16), bbox_bottom, depth + 1, obj_playonce)	
+		if (sprite_index == jumpspr)
 		{
-			sprite_index = spr_runcloud
-			image_speed = 1/3
-			hspeed = other.xscale * -3
+			if anim_end()
+				sprite_index = fallspr1
 		}
-		steppy = 7
-	}	
+	}
 	
 	if x > 2400 && !instance_exists(obj_pinhole)
 	{

@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"mus_world1jingle",
   "parent":{
-    "name":"Level",
-    "path":"folders/Music/Level.yy",
+    "name":"World 1",
+    "path":"folders/Music/Level/World 1.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

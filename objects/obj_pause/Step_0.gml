@@ -62,7 +62,7 @@ if global.pause
 				sound_play(sfx_fadeout)
 				audio_stop_sound(music)
 				music = -4
-				with instance_create_depth(camera_get_view_x(view_camera[0]) + 480, camera_get_view_y(view_camera[0]) + 270, depth - 1, obj_pinhole)
+				with instance_create_depth(camera_get_view_x(view_camera[0]) + 480, camera_get_view_y(view_camera[0]) + 270, -10000, obj_pinhole)
 					transition = -1	
 			}
 			else

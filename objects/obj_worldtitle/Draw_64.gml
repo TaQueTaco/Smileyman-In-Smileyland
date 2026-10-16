@@ -1,6 +1,6 @@
 draw_set_colour(c_black)
-draw_rectangle(0, 0, 960, 120, 0)
-draw_rectangle(0, 420, 960, 540, 0)
+draw_rectangle(0, 0, 960, 80, 0)
+draw_rectangle(0, 460, 960, 540, 0)
 draw_set_colour(c_white)
 
 draw_set_font(global.fnt_text)
