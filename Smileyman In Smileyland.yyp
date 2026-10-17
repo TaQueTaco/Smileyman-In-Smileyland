@@ -568,7 +568,7 @@
     {"id":{"name":"spr_dlg_box","path":"sprites/spr_dlg_box/spr_dlg_box.yy",},},
     {"id":{"name":"spr_dlg_maroon1","path":"sprites/spr_dlg_maroon1/spr_dlg_maroon1.yy",},},
     {"id":{"name":"spr_dlg_smiley1","path":"sprites/spr_dlg_smiley1/spr_dlg_smiley1.yy",},},
-    {"id":{"name":"spr_flag_special","path":"sprites/spr_flag_special/spr_flag_special.yy",},},
+    {"id":{"name":"spr_flag_activate","path":"sprites/spr_flag_activate/spr_flag_activate.yy",},},
     {"id":{"name":"spr_flag","path":"sprites/spr_flag/spr_flag.yy",},},
     {"id":{"name":"spr_fntscore","path":"sprites/spr_fntscore/spr_fntscore.yy",},},
     {"id":{"name":"spr_fnttext","path":"sprites/spr_fnttext/spr_fnttext.yy",},},

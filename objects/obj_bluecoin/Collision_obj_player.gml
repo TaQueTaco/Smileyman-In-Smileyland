@@ -11,7 +11,6 @@ with obj_flag
 	if global.bluecoins_world >= 5
 	{
 		special = 2;
-		sprite_index = spr_flag_special;
 	}
 }
 event_inherited();
