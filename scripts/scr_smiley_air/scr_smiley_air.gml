@@ -11,7 +11,9 @@ function scr_smiley_air(){
 	move = key_right - key_left
 	if (move != 0) && !((move == sign(hsp)) && (abs(hsp) > spd))
 		hsp = Approach(hsp, (spd) * move, accel)
-		
+	
+	looksie = 0;
+	
 	if hsp != 0
 	{
 		xscale = sign(hsp)
@@ -34,7 +36,10 @@ function scr_smiley_air(){
 	}
 	
 	if (sprite_index == fallspr3)
+	{
 		vsp += 0.4
+		looksie = -30;
+	}
 	
 	if (sprite_index == jumpspr)
 	{

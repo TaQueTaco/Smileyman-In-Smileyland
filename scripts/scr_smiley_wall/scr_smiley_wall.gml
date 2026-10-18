@@ -46,6 +46,7 @@ function scr_smiley_wall(){
 			{
 				grav = 0.4
 				vsp = max(vsp, 4)
+				looksie = -30;
 			}
 			else
 			{

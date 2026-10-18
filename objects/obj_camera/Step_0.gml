@@ -26,8 +26,13 @@ if !obj_player.grounded
 else
 	vsp = lerp(vsp, 0, 0.5)
 
+if abs(obj_player.looksie) == 30
+	looksie = Approach(looksie, -sign(obj_player.looksie) * 128, 4)
+else
+	looksie = Approach(looksie, 0, 8)
+
 x = obj_player.x - 480 + hsp
-y = obj_player.y -270 + vsp
+y = obj_player.y -270 + vsp + looksie
 
 if instance_exists(obj_camshake)
 {

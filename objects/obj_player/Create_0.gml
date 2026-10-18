@@ -30,6 +30,7 @@ audio_sound_loop_end(sfx_slide, 1.49);
 walksnd = -4
 
 idlespr = spr_smiley_idle
+lookupspr = spr_smiley_lookup
 walkspr = spr_smiley_walk
 talkspr = spr_smiley_talk
 runspr = spr_smiley_run

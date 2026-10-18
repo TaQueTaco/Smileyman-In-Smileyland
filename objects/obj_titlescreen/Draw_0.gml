@@ -20,7 +20,7 @@ if !settings
 		draw_rectangle(0, 0, room_width, room_height, 0)
 		draw_set_alpha(1)
 		draw_set_colour(c_white)
-		draw_sprite(spr_WAIT, 0, 480, 270)
+		//draw_sprite(spr_WAIT, 0, 480, 270)
 		draw_set_valign(fa_middle)
 		draw_set_halign(fa_center)
 		draw_text(480,120,"! WAIT !")

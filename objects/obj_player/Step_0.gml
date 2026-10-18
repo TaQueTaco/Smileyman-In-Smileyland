@@ -61,18 +61,21 @@ else
 	if oneup
 	{
 		grav = 0.6
+		looksie = 0;
 		state = states.oneup
 		scr_smiley_1up()
 	}
 	else if win
 	{
 		grav = 0.6
+		looksie = 0;
 		state = states.win
 		scr_smiley_win()
 	}
 	else if dead
 	{
 		grav = 0
+		looksie = 0;
 		state = states.dead
 		scr_smiley_dead()
 	}

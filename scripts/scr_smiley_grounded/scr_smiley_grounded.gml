@@ -18,6 +18,11 @@ function scr_smiley_grounded(){
 		accel = 0.1
 	hsp = Approach(hsp, (key_run ? runspd : walkspd) * move, accel)
 	
+	if key_up && hsp == 0
+		looksie = Approach(looksie, 30, 1)
+	else
+		looksie = 0;
+	
 	if hsp != 0
 	{
 		looksie = 0;
@@ -58,11 +63,7 @@ function scr_smiley_grounded(){
 	}
 	else if !landAnim
 	{
-		if key_up
-			looksie = Approach(looksie, 30, 1)
-		else
-			looksie = 0;
-		sprite_index = idlespr
+		sprite_index = (looksie == 30) ? lookupspr : idlespr
 		if audio_is_playing(walksnd)
 		{
 			audio_stop_sound(walksnd)
