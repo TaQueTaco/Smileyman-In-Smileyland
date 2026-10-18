@@ -15,4 +15,6 @@ function scr_smiley_crouch(){
 		}
 		hsp = Approach(hsp, 0, grdfriction)
 	}
+	
+	looksie = Approach(looksie, -30, 1)
 }

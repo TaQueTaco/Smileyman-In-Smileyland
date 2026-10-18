@@ -9,3 +9,4 @@ blueindex = 0;
 _minx = 0;
 _miny = 0;
 _maxy = 0;
+looksie = 0;

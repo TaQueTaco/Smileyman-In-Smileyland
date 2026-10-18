@@ -20,7 +20,7 @@ coyote = 0;
 wall = 0;
 walltime = 0;
 steppy = 0;
-
+looksie = 0;
 falltime = 0;
 
 slidesnd = -4

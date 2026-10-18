@@ -60,9 +60,9 @@ function scr_smiley_1up(){
 			}
 			else 
 			{
-				if !audio_is_playing(mus_1up) && deadshake >= 45
+				if !audio_is_playing(mus_1up)
 				{
-					oneup = 0;	
+					oneup = 0;
 					state = states.normal;
 				}
 			}

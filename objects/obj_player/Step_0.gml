@@ -61,20 +61,20 @@ else
 	if oneup
 	{
 		grav = 0.6
-		scr_smiley_1up()
 		state = states.oneup
+		scr_smiley_1up()
 	}
 	else if win
 	{
 		grav = 0.6
-		scr_smiley_win()
 		state = states.win
+		scr_smiley_win()
 	}
 	else if dead
 	{
 		grav = 0
-		scr_smiley_dead()
 		state = states.dead
+		scr_smiley_dead()
 	}
 	
 	if (wall == 0)

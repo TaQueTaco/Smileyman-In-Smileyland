@@ -20,6 +20,7 @@ function scr_smiley_grounded(){
 	
 	if hsp != 0
 	{
+		looksie = 0;
 		if walksnd == -4
 		{
 			walksnd = audio_play_sound(sfx_walking, 1, 1, global.sfx_vol, 0);
@@ -57,6 +58,10 @@ function scr_smiley_grounded(){
 	}
 	else if !landAnim
 	{
+		if key_up
+			looksie = Approach(looksie, 30, 1)
+		else
+			looksie = 0;
 		sprite_index = idlespr
 		if audio_is_playing(walksnd)
 		{
