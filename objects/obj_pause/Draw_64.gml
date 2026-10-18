@@ -41,13 +41,13 @@ if prettysurethrewatrashbagintospaceatwork
 	//draw_sprite(spr_WAIT, 0, 480, 270)
 	draw_set_valign(fa_middle)
 	draw_set_halign(fa_center)
-	draw_text(480,120,"! WAIT !")
-	draw_text(480,160,"ARE YOU SURE YOU WANT TO GO BACK TO TITLE?\nYOUR PROGRESS WON'T SAVE!!")
+	draw_text(480,120,"! HOLD ON !")
+	draw_text(480,160,"YOUR CURRENT PROGRESS WILL NOT SAVE!\nIF YOU CONTINUE YOU WILL START\nFROM THIS WORLD'S FIRST STAGE!")
 		
 	draw_set_colour(!areyousure ? c_white : c_grey)
 	draw_text(400,380,"NO")
 		
-	draw_set_colour(areyousure ? c_red : c_grey)
+	draw_set_colour(areyousure ? c_white : c_grey)
 	draw_text(560,380,"YES")
 		
 	draw_set_valign(fa_top)
