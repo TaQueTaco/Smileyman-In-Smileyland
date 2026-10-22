@@ -22,7 +22,7 @@ walltime = 0;
 steppy = 0;
 looksie = 0;
 falltime = 0;
-
+flip = 0;
 slidesnd = -4
 audio_sound_loop_start(sfx_slide, 0.55);
 audio_sound_loop_end(sfx_slide, 1.49);
@@ -42,6 +42,7 @@ wallspr = spr_smiley_wallslide
 walllandspr = spr_smiley_wallslideland
 landspr = spr_smiley_land
 crouchspr = spr_smiley_crouch
+caramelspr = spr_smiley_caramel
 landAnim = 0
 
 xscale = 1

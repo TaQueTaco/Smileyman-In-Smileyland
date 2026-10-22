@@ -37,7 +37,7 @@ function scr_smiley_air(){
 	
 	if (sprite_index == fallspr3)
 	{
-		vsp += 0.4
+		vsp += flip ? -0.4 : 0.4
 		looksie = -30;
 	}
 	
@@ -49,7 +49,7 @@ function scr_smiley_air(){
 	else if (sprite_index != fallspr3)
 		sprite_index = (falltime >= 60) ? fallspr2 : fallspr1
 	
-	if (vsp > 0)
+	if (vsp > 0 && !flip) || (vsp < 0 && flip) && (sprite_index != fallspr3)
 	{
 		jumpstop = 1
 		if falltime < 60
@@ -91,7 +91,7 @@ function scr_smiley_air(){
 		}
 	}
 	
-	if place_meeting_collision(x + sign(hsp), y, Exclude.SLOPES) && place_meeting_collision(x + sign(hsp), y + 64, Exclude.SLOPES)
+	if place_meeting_collision(x + sign(hsp), y, Exclude.SLOPES) && place_meeting_collision(x + sign(hsp), y + (flip ? -64 : 64), Exclude.SLOPES)
 	{
 		sound_play(sfx_land, random_range(0.85, 1.15))
 		landAnim = 1;

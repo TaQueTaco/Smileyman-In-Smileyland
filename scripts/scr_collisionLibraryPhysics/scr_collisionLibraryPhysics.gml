@@ -27,6 +27,7 @@ function scr_collision_init() {
 	terminalVelocity = 10;
 	onMovingPlatform = noone;
 
+	flip = 0;
 	grav = 0;		
 	hsp = 0;
 	vsp = 0;
@@ -212,8 +213,8 @@ function scr_collision() {
 
 	
 	// Grounded Check
-	grounded = (place_meeting_collision(x, y + 1));
-	groundedSlope = (place_meeting_slope(x, y + 1));
+	grounded = (place_meeting_collision(x, flip ? y - 1 : y + 1));
+	groundedSlope = (place_meeting_slope(x, flip ? y - 1 : y + 1));
 	
 	// Kinematic Stuff 
 	if (!grounded && _old_grounded && instance_exists(onMovingPlatform)) {

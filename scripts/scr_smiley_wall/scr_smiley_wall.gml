@@ -1,6 +1,13 @@
 function scr_smiley_wall(){
 	xscale = -wall
-	if !place_meeting_collision(x + wall, y, Exclude.SLOPES) || !place_meeting_collision(x + wall, y + 64, Exclude.SLOPES) || grounded
+	
+	if place_meeting(x, y, obj_caramel)
+	{
+		state = states.caramel
+		exit;
+	}
+	
+	if !place_meeting_collision(x + wall, y, Exclude.SLOPES) || !place_meeting_collision(x + wall, y + (flip ? -64 : 64), Exclude.SLOPES) || grounded
 	{
 		if !grounded
 		{
@@ -38,20 +45,20 @@ function scr_smiley_wall(){
 			if key_down
 				walltime--
 			grav = 0
-			vsp = Approach(vsp, 0.2, 0.4)
+			vsp = Approach(vsp, flip ? -0.2 : 0.2, 0.4)
 		}
 		else
 		{
 			if key_down
 			{
 				grav = 0.4
-				vsp = max(vsp, 4)
+				vsp = flip ? min(vsp, -4) : max(vsp, 4)
 				looksie = -30;
 			}
 			else
 			{
 				grav = 0.2
-				vsp = max(vsp, 2)
+				vsp = flip ? min(vsp, -2) : max(vsp, 2)
 			}
 			if slidesnd == -4
 			{

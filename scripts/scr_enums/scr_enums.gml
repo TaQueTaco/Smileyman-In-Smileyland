@@ -7,5 +7,5 @@ enum states
 	oneup,
 	dlg,
 	glide,
-	
+	caramel,
 }

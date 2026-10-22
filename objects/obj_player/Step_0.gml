@@ -80,7 +80,7 @@ else
 		scr_smiley_dead()
 	}
 	
-	if (wall == 0)
+	if (wall == 0) || (state == states.caramel)
 	{
 		walltime = 0
 	
@@ -100,7 +100,7 @@ else
 		}
 	}
 
-	if (grounded && (vsp >= 0)) || (wall != 0)
+	if (grounded && ((vsp >= 0 && !flip) || (vsp <= 0 && flip))) || (wall != 0)
 	{
 		falltime = 0;
 		bouncetime = 0;
@@ -125,6 +125,9 @@ else
 		case states.crouch:
 			scr_smiley_crouch()	
 		break;
+		case states.caramel:
+			scr_smiley_caramel()	
+		break;
 	}
 
 	
@@ -136,7 +139,7 @@ else
 			audio_stop_sound(sfx_land)
 		coyote = 0
 		input_buffer_jump = 0;
-		vsp = jumpspd
+		vsp = jumpspd * (flip ? -1 : 1)
 		jumpstop = 0
 		sprite_index = jumpspr
 		image_index = 0
@@ -150,6 +153,8 @@ else
 }
 var _g = grounded
 
-mask_index = (state == states.crouch) ? spr_small_mask : spr_smiley_mask
+mask_index = (state == states.crouch) ? (flip ? spr_small_mask_1 : spr_small_mask) : spr_smiley_mask
+if flip
+	grav *= -1
 scr_collision()
 prevGrounded = _g

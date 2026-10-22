@@ -3,6 +3,7 @@ if instance_exists(obj_spawnpoint)
 	state = states.normal
 	hsp = 0
 	vsp = 0
+	flip = 0;
 	image_alpha = 1
 	dead = 0
 	win = 0
