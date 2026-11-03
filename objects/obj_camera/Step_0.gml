@@ -27,7 +27,7 @@ else
 	vsp = lerp(vsp, 0, 0.5)
 
 if abs(obj_player.looksie) == 30
-	looksie = Approach(looksie, -sign(obj_player.looksie) * 128, 4)
+	looksie = Approach(looksie, -sign(obj_player.looksie) * 256, 4)
 else
 	looksie = Approach(looksie, 0, 8)
 
