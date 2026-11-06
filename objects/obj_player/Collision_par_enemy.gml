@@ -7,7 +7,7 @@ if other.bounce && (vsp > 0) && !dead && !win
 		event_user(0)	
 	}
 }
-else if other.kill && !dead && !win
+else if other.kill && !dead && !win && !global.god
 {
 	other.killer = 1
 	sound_play(sfx_impact, random_range(0.95, 1.05))

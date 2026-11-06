@@ -203,7 +203,18 @@ switch attack
 		else if wait >= 80
 		{
 			if !obj_player.dead
+			{
 				attack = irandom_range(1, 3)
+				if prevattack == attack
+				{
+					do
+					{
+						attack = irandom_range(1, 3)	
+					}
+					until prevattack != attack
+				}
+				prevattack = attack
+			}
 		}
 	break;
 	case 1:
@@ -372,7 +383,7 @@ switch attack
 					image_speed = 1/6
 					if anim_end()
 					{
-						if what == 3
+						if what == 2
 						{
 							vsp = -8
 							grounded = false;

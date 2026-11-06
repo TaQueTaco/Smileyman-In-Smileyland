@@ -2,6 +2,7 @@ image_speed = 1/3
 dead = 0;
 scr_collision_init()
 attack = 0;
+prevattack = 0;
 what = 0;
 why = 0;
 wait = -40;

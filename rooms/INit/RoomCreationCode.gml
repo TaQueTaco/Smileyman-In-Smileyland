@@ -12,6 +12,9 @@ global.bluecoins = 0;
 global.coinpitch = 1;
 global.secrets = 0;
 global.checkpoint = 0;
+global.god = 0
+global.fly = 0
+global.blue = 0
 
 ini_open("options.ini")
 global.mas_vol = ini_read_real("Volume", "Master", 1)

@@ -51,6 +51,8 @@ else
 			donetalking = 1;
 			if key_jump2
 			{
+				obj_player.input_buffer_jump = 0
+				obj_player.key_jump2 = 0
 				index++
 				text = ""
 				textl = 0

@@ -11,10 +11,15 @@ if global.score >= (global.livescheck * 1000)
 		audio_play_sound(mus_1upjingle, 1, 0, global.mus_vol, 0);
 }
 
-if grounded
+if !global.fly
+{
+	if grounded
+		coyote = 6
+	else if coyote
+		coyote--
+}
+else
 	coyote = 6
-else if coyote
-	coyote--
 
 if input_buffer_jump
 	input_buffer_jump--
