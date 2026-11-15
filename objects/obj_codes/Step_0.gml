@@ -17,6 +17,7 @@ for (var i = 0; i < array_length(codes); i++)
 			case 0: global.god = !global.god; break;
 			case 1: global.fly = !global.fly; break;
 			case 2: global.blue = !global.blue; break;
+			case 3: obj_player.state = states.noclip; break;
 		}
 		valid = false
 	}

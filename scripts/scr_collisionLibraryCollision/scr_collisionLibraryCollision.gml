@@ -465,6 +465,7 @@ function instance_place_list_slopeSolid(xx, yy, obj = obj_slope, list = undefine
 function place_meeting_slopeSolid(xx, yy, obj = obj_slope) {
 	return (instance_place_list_slopeSolid(xx, yy, obj) > 0);
 }
+
 /// @desc With this function you can check a position for a collision with slope's backside.
 /// @param {any*} x The x position to check.
 /// @param {any*} y The y position to check.

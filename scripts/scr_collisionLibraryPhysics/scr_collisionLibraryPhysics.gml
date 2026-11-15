@@ -26,6 +26,7 @@ function scr_collision_init() {
 	groundedSlope = false;	
 	terminalVelocity = 10;
 	onMovingPlatform = noone;
+	weight = 1;
 
 	flip = 0;
 	grav = 0;		
@@ -221,7 +222,6 @@ function scr_collision() {
 		hspCarry = (onMovingPlatform.x - onMovingPlatform.xprevious)/2;
 		vspCarry = (onMovingPlatform.y - onMovingPlatform.yprevious)/2;
 	}
-	
 	
 	// Previous hsp and vsp
 	prevHsp = hsp;

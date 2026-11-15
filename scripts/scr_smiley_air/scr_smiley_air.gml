@@ -60,6 +60,9 @@ function scr_smiley_air(){
 		}
 	}
 	
+	if vsp < -8
+		falltime = 0
+	
 	if !jumpstop
 	{
 		if key_jump

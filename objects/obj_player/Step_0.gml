@@ -113,6 +113,13 @@ else
 	
 	switch state
 	{
+		case states.noclip:
+			move = key_right - key_left
+			moveV = key_down - key_up
+			hsp = move * 6
+			vsp = moveV * 6
+			coyote = 6
+		break;
 		case states.normal:
 			if (wall != 0)
 			{
@@ -154,6 +161,8 @@ else
 			wall = 0
 			hsp = xscale * walljumpspd
 		}
+		if state == states.noclip
+			state = states.normal
 	}	
 }
 var _g = grounded
@@ -161,5 +170,11 @@ var _g = grounded
 mask_index = (state == states.crouch) ? (flip ? spr_small_mask_1 : spr_small_mask) : spr_smiley_mask
 if flip
 	grav *= -1
-scr_collision()
+if state != states.noclip
+	scr_collision()
+else
+{
+	x += hsp
+	y += vsp
+}
 prevGrounded = _g

@@ -2,7 +2,8 @@ code = ""
 codes = [
 	"GOD",
 	"FLY",
-	"BLUE"
+	"BLUE",
+	"NOCLIP",
 ]
 
 depth = -2763

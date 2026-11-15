@@ -8,4 +8,5 @@ enum states
 	dlg,
 	glide,
 	caramel,
+	noclip,
 }

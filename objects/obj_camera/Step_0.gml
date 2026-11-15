@@ -31,8 +31,8 @@ if abs(obj_player.looksie) == 30
 else
 	looksie = Approach(looksie, 0, 8)
 
-x = obj_player.x - 480 + hsp
-y = obj_player.y -270 + vsp + looksie
+x = obj_player.x - 640 + hsp
+y = obj_player.y -360 + vsp + looksie
 
 if instance_exists(obj_camshake)
 {
@@ -45,15 +45,15 @@ if instance_exists(obj_camshake)
 
 if (string_pos("Cutscene", room_get_name(room)) != 0)
 {
-	x = (room_width / 2) - 480
+	x = (room_width / 2) - 640
 	y = 0
 }
 
-x = clamp(x, _minx, room_width - 960)
+x = clamp(x, _minx, room_width - 1280)
 y = clamp(y, _miny, _maxy)
 
 camera_set_view_pos(view_camera[0], x, y)
-audio_listener_set_position(0, -(x + 480), (y + 270), 0)
+audio_listener_set_position(0, -(x + 640), (y + 360), 0)
 
 if deadflash > 0
 	deadflash -= 0.08
