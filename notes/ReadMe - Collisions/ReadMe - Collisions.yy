@@ -1,5 +1,5 @@
 {
-  "$GMNotes":"v1",
+  "$GMNotes":"v2",
   "%Name":"ReadMe - Collisions",
   "name":"ReadMe - Collisions",
   "parent":{
