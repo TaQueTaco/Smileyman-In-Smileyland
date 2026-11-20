@@ -29,11 +29,11 @@ function scr_smiley_air(){
 		sprite_index = fallspr3
 	}
 	
-	if (sprite_index != jumpspr) && (sprite_index != fallspr1) && (sprite_index != fallspr2) && (sprite_index != fallspr3)
+	/*if (sprite_index != jumpspr) && (sprite_index != fallspr1) && (sprite_index != fallspr2) && (sprite_index != fallspr3)
 	{
 		jumpstop = 1
 		sprite_index = fallspr2
-	}
+	}*/
 	
 	if (sprite_index == fallspr3)
 	{
@@ -46,18 +46,31 @@ function scr_smiley_air(){
 		if anim_end()
 			sprite_index = fallspr1
 	}
-	else if (sprite_index != fallspr3)
-		sprite_index = (falltime >= 60) ? fallspr2 : fallspr1
+	if (sprite_index == fallspr1) {
+		if (falltime >= 30) sprite_index = bigfallspr1
+	}
+	if (sprite_index == bigfallspr1) {
+		if (anim_end()) sprite_index = bigfallspr2
+	}
+	if (sprite_index == bigfallspr2) {
+		if (falltime >= 90) {
+			sprite_index = bigfallspr3
+			sound_play(sfx_gasp, random_range(0.85, 1.15))
+		}
+	}
+	if (sprite_index == bigfallspr3) {
+		if (anim_end()) sprite_index = bigfallspr4
+	}
 	
 	if (vsp > 0 && !flip) || (vsp < 0 && flip) && (sprite_index != fallspr3)
 	{
 		jumpstop = 1
-		if falltime < 60
+		if falltime < 90
 			falltime++
-		if (falltime >= 60) && (sprite_index != fallspr2)
+		/*if (falltime >= 60) && (sprite_index != fallspr2)
 		{
 			sound_play(sfx_gasp, random_range(0.85, 1.15))
-		}
+		}*/
 	}
 	
 	if vsp < -8

@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Smileyman",
-    "path":"folders/Sprites/Smileyman.yy",
+    "name":"ground",
+    "path":"folders/Sprites/Smileyman/ground.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

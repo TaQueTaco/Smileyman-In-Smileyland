@@ -10,6 +10,7 @@ function scr_smiley_grounded(){
 	}
 	
 	move = key_right - key_left
+	move2 = key_right*2 + key_left*3
 	var accel = 0.4
 	
 	if abs(hsp < 1) && (move == sign(hsp))
@@ -38,11 +39,29 @@ function scr_smiley_grounded(){
 		}
 		xscale = sign(hsp)
 		
+		if sprite_index == walkspr {
+			if (abs(hsp) >= runspd) sprite_index = runtranspr
+			if (abs(hsp) >= lerp(walkspd,runspd,0.5) && move2%(-xscale/2+2.5)) sprite_index = turnspr
+		}
+		if sprite_index == runspr {
+			if (move2%(-xscale/2+2.5)) sprite_index = turnspr
+		}
+		if sprite_index == runtranspr {
+			if (anim_end()) sprite_index = runspr
+			if (move2%(-xscale/2+2.5)) sprite_index = turnspr
+			image_speed = 1/2
+		}
+		if sprite_index == turnspr {
+			if (move2%(xscale/2+2.5)) sprite_index = runspr
+			image_speed = 1/3
+		}
 		if !landAnim
 		{
-			image_speed = (sprite_index == runspr) ? (1/3) : ((abs(hsp)/walkspd) * (1/6))
-		
-			sprite_index = (abs(hsp) >= runspd) ? runspr : walkspr
+			if (sprite_index!=turnspr && sprite_index!=runtranspr) {
+				image_speed = (sprite_index == runspr) ? (1/3) : ((abs(hsp)/walkspd) * (1/6))
+				
+				sprite_index = (abs(hsp) >= runspd) ? runspr : walkspr	
+			}
 		}
 		
 		if sprite_index == runspr
@@ -60,6 +79,17 @@ function scr_smiley_grounded(){
 				steppy = 7
 			}	
 		}
+		if sprite_index == turnspr
+		{ if (steppy) steppy--
+			else {
+				with instance_create_depth(x + (xscale * 20), bbox_bottom, depth + 1, obj_playonce)	
+				{
+					sprite_index = spr_runcloud
+					image_speed = 1/3
+					hspeed = other.hsp + other.xscale * 4
+				}
+				steppy = 7
+		} }
 	}
 	else if !landAnim
 	{
