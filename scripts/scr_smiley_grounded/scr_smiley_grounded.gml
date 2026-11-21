@@ -24,6 +24,11 @@ function scr_smiley_grounded(){
 	else
 		looksie = 0;
 	
+	if hsp == 0 && sprite_index == turnspr && move != 0 {
+		sprite_index = runspr
+		turnspeedup = turnspeeduptime
+		hsp = move
+	}
 	if hsp != 0
 	{
 		looksie = 0;
@@ -40,19 +45,29 @@ function scr_smiley_grounded(){
 		xscale = sign(hsp)
 		
 		if sprite_index == walkspr {
+			runspdsave = abs(hsp)
 			if (abs(hsp) >= runspd) sprite_index = runtranspr
-			if (abs(hsp) >= lerp(walkspd,runspd,0.5) && move2%(-xscale/2+2.5)) sprite_index = turnspr
+			if (abs(hsp) >= runspd-accel*4 && move2%(-sign(hsp)/2+2.5)) sprite_index = turnspr
+			if (turnspeedup>0) hsp = Approach(hsp, runspd*move, turnaccel)
 		}
 		if sprite_index == runspr {
-			if (move2%(-xscale/2+2.5)) sprite_index = turnspr
+			runspdsave = abs(hsp)
+			if (move2%(-sign(hsp)/2+2.5)) sprite_index = turnspr
+			if (turnspeedup>0) hsp = Approach(hsp, runspd*move, turnaccel)
 		}
 		if sprite_index == runtranspr {
+			runspdsave = abs(hsp)
 			if (anim_end()) sprite_index = runspr
-			if (move2%(-xscale/2+2.5)) sprite_index = turnspr
+			if (move2%(-sign(hsp)/2+2.5)) sprite_index = turnspr
 			image_speed = 1/2
+			if (turnspeedup>0) hsp = Approach(hsp, runspd*move, turnaccel)
 		}
 		if sprite_index == turnspr {
-			if (move2%(xscale/2+2.5)) sprite_index = runspr
+			if (move==sign(hsp)) {
+				//sprite_index = (runspd >= runspd-accel*2) ? runtranspr : walkspr
+				sprite_index = runspr
+				turnspeedup = turnspeeduptime
+			}
 			image_speed = 1/3
 		}
 		if !landAnim

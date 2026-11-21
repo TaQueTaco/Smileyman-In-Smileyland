@@ -10,5 +10,7 @@ if hp <= 1
 	_spr = spr_lifeuhoh
 if hp == 0 && instance_exists(obj_blood)
 	_spr = spr_death
-draw_sprite_ext(_spr, image_index, 960, 444, -1, 1, 0, c_purple, 1)
-draw_text(780, 492, string_concat("x ", hp))
+var _camw = camera_get_view_width(view_camera[0])
+var _camh = camera_get_view_height(view_camera[0])
+draw_sprite_ext(_spr, image_index,_camw,_camh-100,-1, 1, 0, c_purple, 1)
+draw_text(_camw-180,_camh-52,string_concat("x ", hp))

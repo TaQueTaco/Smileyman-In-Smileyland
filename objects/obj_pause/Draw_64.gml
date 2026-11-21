@@ -1,3 +1,6 @@
+var _camw = camera_get_view_width(view_camera[0])
+var _camh = camera_get_view_height(view_camera[0])
+
 if global.pause
 	draw_sprite(picture, 0, 0, 0)
 draw_set_alpha(alpha * 0.5)
@@ -10,10 +13,10 @@ for (var i = 0; i < array_length(options); i++)
 	draw_set_valign(fa_middle)
 	draw_set_halign(fa_center)
 	draw_set_colour(sel == i ? c_white : c_grey)
-	draw_text(480, 128 + (i * 64), options[i]._name)
+	draw_text(_camw/2, 192 + ((i+1) * 64), options[i]._name)
 }
 draw_set_colour(c_white)
-draw_text(480, 64, "PAUSED")
+draw_text(_camw/2, 192, "PAUSED")
 draw_set_valign(fa_top)
 
 if global.bluecoins_world > 0
@@ -41,14 +44,14 @@ if prettysurethrewatrashbagintospaceatwork
 	//draw_sprite(spr_WAIT, 0, 480, 270)
 	draw_set_valign(fa_middle)
 	draw_set_halign(fa_center)
-	draw_text(480,120,"! HOLD ON !")
-	draw_text(480,160,"YOUR CURRENT PROGRESS WILL NOT SAVE!\nIF YOU CONTINUE YOU WILL START\nFROM THIS WORLD'S FIRST STAGE!")
+	draw_text(_camw/2,220,"! HOLD ON !")
+	draw_text(_camw/2,294,"YOUR CURRENT PROGRESS WILL NOT SAVE!\nIF YOU CONTINUE YOU WILL START\nFROM THIS WORLD'S FIRST STAGE!")
 		
 	draw_set_colour(!areyousure ? c_white : c_grey)
-	draw_text(400,380,"NO")
+	draw_text(_camw/2-80,512,"NO")
 		
 	draw_set_colour(areyousure ? c_white : c_grey)
-	draw_text(560,380,"YES")
+	draw_text(_camw/2+80,512,"YES")
 		
 	draw_set_valign(fa_top)
 	draw_set_halign(fa_left)

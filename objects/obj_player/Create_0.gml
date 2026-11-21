@@ -14,6 +14,11 @@ runspd = 11
 grdfriction = 0.2
 airfriction = 0.1
 
+runspdsave = 0
+turnspeedup = 0
+turnspeeduptime = 6
+turnaccel = 2
+
 deadx = x
 deady = y
 dead = 0

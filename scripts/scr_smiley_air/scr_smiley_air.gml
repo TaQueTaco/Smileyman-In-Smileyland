@@ -61,6 +61,14 @@ function scr_smiley_air(){
 	if (sprite_index == bigfallspr3) {
 		if (anim_end()) sprite_index = bigfallspr4
 	}
+	/*if (sprite_index == bigfallspr4) {
+		// maybe
+	}*/
+	if (sprite_index==idlespr||sprite_index==walkspr||sprite_index==runspr||
+	 sprite_index==runtranspr||sprite_index==turnspr||sprite_index==landspr) {
+		sprite_index = bigfallspr2
+	}
+	
 	
 	if (vsp > 0 && !flip) || (vsp < 0 && flip) && (sprite_index != fallspr3)
 	{

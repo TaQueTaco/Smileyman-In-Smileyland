@@ -21,6 +21,8 @@ if !global.fly
 else
 	coyote = 6
 
+if (turnspeedup>0) turnspeedup--
+
 if input_buffer_jump
 	input_buffer_jump--
 

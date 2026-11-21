@@ -1,3 +1,6 @@
+var _camw = camera_get_view_width(view_camera[0])
+var _camh = camera_get_view_height(view_camera[0])
+
 if !settings
 {
 	for (var i = 0; i < sprite_get_number(spr_title_buttons); i++)
@@ -23,17 +26,17 @@ if !settings
 		//draw_sprite(spr_WAIT, 0, 480, 270)
 		draw_set_valign(fa_middle)
 		draw_set_halign(fa_center)
-		draw_text(480,120,"! HOLD ON !")
+		draw_text(_camw/2,192,"! HOLD ON !")
 		var reason = "START A NEW GAME"
 		if select == 4
 			reason = "QUIT"
-		draw_text(480,160,"ARE YOU SURE YOU WANT TO " + reason + "?\nYOU ALREADY HAVE SAVED DATA!")
+		draw_text(_camw/2,256,"ARE YOU SURE YOU WANT TO " + reason + "?\nYOU ALREADY HAVE SAVED DATA!")
 		
 		draw_set_colour(!areyousure ? c_white : c_grey)
-		draw_text(400,380,"NO")
+		draw_text(_camw/2-80,512,"NO")
 		
 		draw_set_colour(areyousure ? c_white : c_grey)
-		draw_text(560,380,"YES")
+		draw_text(_camw/2+80,512,"YES")
 		
 		draw_set_valign(fa_top)
 		draw_set_halign(fa_left)

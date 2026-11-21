@@ -1,3 +1,7 @@
+var _camw = camera_get_view_width(view_camera[0])
+var _camh = camera_get_view_height(view_camera[0])
+
+
 get_input()
 audio_master_gain(global.mas_vol)
 canPause = !instance_exists(obj_pinhole) && !instance_exists(obj_settings) && (room != titlescreen) && (room != gameover) && (room != levelselect)
@@ -15,7 +19,7 @@ if InputPressed(INPUT_VERB.PAUSE) && canPause
 	global.pause = !global.pause
 	if global.pause
 	{
-		picture = sprite_create_from_surface(application_surface, 0, 0, 960, 540, 0, 0, 0, 0)
+		picture = sprite_create_from_surface(application_surface, 0, 0, _camw, _camh, 0, 0, 0, 0)
 		sel = 0
 		audio_pause_all()
 		music = audio_play_sound(mus_pause, 1, 1, global.mus_vol, 0);
@@ -62,7 +66,7 @@ if global.pause
 				sound_play(sfx_fadeout)
 				audio_stop_sound(music)
 				music = -4
-				with instance_create_depth(camera_get_view_x(view_camera[0]) + 480, camera_get_view_y(view_camera[0]) + 270, -10000, obj_pinhole)
+				with instance_create_depth(camera_get_view_x(view_camera[0]) + _camw/2, camera_get_view_y(view_camera[0]) + _camw/2, -10000, obj_pinhole)
 					transition = -1	
 			}
 			else

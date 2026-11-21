@@ -6,6 +6,7 @@ if (other.image_speed == 0) && !dead && !win
 	bouncetime = 30;
 	sprite_index = jumpspr
 	image_index = 0
+	grounded = false
 	falltime = 0
 	other.image_speed = 1/3
 }
