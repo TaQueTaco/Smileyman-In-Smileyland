@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_sadsolid",
-    "path":"sprites/spr_sadsolid/spr_sadsolid.yy",
+    "name":"spr_donutblock",
+    "path":"sprites/spr_donutblock/spr_donutblock.yy",
   },
   "spriteMaskId":{
     "name":"spr_solid",

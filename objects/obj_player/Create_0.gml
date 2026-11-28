@@ -73,5 +73,6 @@ jumpstop = 0
 afttime = 0;
 
 input_buffer_jump = 0;
+disable_controls = 0;
 get_input();
 state = states.normal;

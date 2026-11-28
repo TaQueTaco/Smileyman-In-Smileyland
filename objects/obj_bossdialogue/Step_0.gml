@@ -5,6 +5,12 @@ if !active
 }
 else
 {
+	if instance_exists(obj_spawnpoint) {
+		var _spawnpoint = instance_nearest(0,0,obj_spawnpoint);
+		_spawnpoint.x = obj_player.x;
+		_spawnpoint.y = obj_player.y;
+	}
+	
 	get_input();
 	visible = 1
 	if index < array_length(dialogue)
@@ -51,8 +57,7 @@ else
 			donetalking = 1;
 			if key_jump2
 			{
-				obj_player.input_buffer_jump = 0
-				obj_player.key_jump2 = 0
+				obj_player.disable_controls = 2;
 				index++
 				text = ""
 				textl = 0

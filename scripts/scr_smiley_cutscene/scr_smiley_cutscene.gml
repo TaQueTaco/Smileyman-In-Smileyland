@@ -22,9 +22,10 @@ function scr_smiley_cutscene()
 	
 	if x > 2400 && !instance_exists(obj_pinhole)
 	{
-		with instance_create_depth(x, y, -999, obj_pinhole)
+		with instance_create_depth(camera_get_view_width(view_camera[0])/2, camera_get_view_height(view_camera[0])/2, -999, obj_pinhole)
 		{
 			transition = 1
+			tr_shrink = true
 		}
 	}
 }

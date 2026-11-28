@@ -4,8 +4,8 @@ if global.checkpoint && !visible
 {
 	visible = 1
 	active = 1
-	obj_player.x = ((x + (image_xscale * 64)) + 352)
-	obj_player.y = bbox_bottom - 96
+	obj_player.x = obj_bossrespawn.x
+	obj_player.y = obj_bossrespawn.y
 	with instance_create_depth(x, y, depth, obj_solid)
 	{
 		image_xscale = other.image_xscale

@@ -25,6 +25,7 @@ if InputPressed(INPUT_VERB.PAUSE) && canPause
 		music = audio_play_sound(mus_pause, 1, 1, global.mus_vol, 0);
 		instance_deactivate_all(true)
 		instance_activate_object(__InputUpdateController)
+		instance_activate_object(obj_pinhole)
 	}
 	else
 	{
@@ -66,8 +67,10 @@ if global.pause
 				sound_play(sfx_fadeout)
 				audio_stop_sound(music)
 				music = -4
-				with instance_create_depth(camera_get_view_x(view_camera[0]) + _camw/2, camera_get_view_y(view_camera[0]) + _camw/2, -10000, obj_pinhole)
+				with instance_create_depth(_camw/2, _camh/2, -10000, obj_pinhole) {
 					transition = -1	
+					tr_shrink = true
+				}
 			}
 			else
 				prettysurethrewatrashbagintospaceatwork = 0
@@ -115,3 +118,7 @@ else
 	}
 	alpha = lerp(alpha, 0, 0.5)
 }
+
+
+
+scrolltime+=0.5;

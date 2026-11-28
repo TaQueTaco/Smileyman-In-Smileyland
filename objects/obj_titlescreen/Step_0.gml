@@ -1,5 +1,8 @@
 get_input();
 
+var _winkstar_x = 1120
+var _winkstar_y = 314
+
 vissel = lerp(vissel, select, 0.1)
 
 if prettysurethrewatrashbagintospaceatwork
@@ -26,7 +29,7 @@ if prettysurethrewatrashbagintospaceatwork
 					prettysurethrewatrashbagintospaceatwork = 0
 					sound_play(sfx_wink)
 					winky = 1
-					instance_create_depth(832,160,depth,obj_titlestar)
+					instance_create_depth(_winkstar_x,_winkstar_y,depth,obj_titlestar)
 					sprite_index = spr_titlesmiley_winky
 					image_index = 0
 				break;
@@ -55,11 +58,12 @@ else if winky
 		if (winky >= 75)
 		{
 			sound_play(sfx_fadeout)
-			with instance_create_depth(x, y, -999, obj_pinhole)
+			with instance_create_depth(camera_get_view_width(view_camera[0])/2, camera_get_view_height(view_camera[0])/2, -999, obj_pinhole)
 			{
 				transition = 4
 				if other.select == 1
 					transition = 5
+				tr_shrink = true
 			}
 		}
 	}
@@ -88,7 +92,7 @@ else
 					{
 						sound_play(sfx_wink)
 						winky = 1
-						instance_create_depth(832,160,depth,obj_titlestar)
+						instance_create_depth(_winkstar_x,_winkstar_y,depth,obj_titlestar)
 						sprite_index = spr_titlesmiley_winky
 						image_index = 0
 					}
@@ -101,7 +105,7 @@ else
 				{
 					sound_play(sfx_wink)
 					winky = 1
-					instance_create_depth(832,160,depth,obj_titlestar)
+					instance_create_depth(_winkstar_x,_winkstar_y,depth,obj_titlestar)
 					sprite_index = spr_titlesmiley_winky
 					image_index = 0
 				}

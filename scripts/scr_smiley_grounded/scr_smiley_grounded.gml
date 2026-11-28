@@ -47,18 +47,27 @@ function scr_smiley_grounded(){
 		if sprite_index == walkspr {
 			runspdsave = abs(hsp)
 			if (abs(hsp) >= runspd) sprite_index = runtranspr
-			if (abs(hsp) >= runspd-accel*4 && move2%(-sign(hsp)/2+2.5)) sprite_index = turnspr
+			if (abs(hsp) >= runspd-accel*4 && move2%(-sign(hsp)/2+2.5)) {
+				sprite_index = turnspr
+				audio_play_sound(sfx_skid, 1, 0, global.sfx_vol, 0);
+			}
 			if (turnspeedup>0) hsp = Approach(hsp, runspd*move, turnaccel)
 		}
 		if sprite_index == runspr {
 			runspdsave = abs(hsp)
-			if (move2%(-sign(hsp)/2+2.5)) sprite_index = turnspr
+			if (move2%(-sign(hsp)/2+2.5)) {
+				sprite_index = turnspr
+				audio_play_sound(sfx_skid, 1, 0, global.sfx_vol, 0);
+			}
 			if (turnspeedup>0) hsp = Approach(hsp, runspd*move, turnaccel)
 		}
 		if sprite_index == runtranspr {
 			runspdsave = abs(hsp)
 			if (anim_end()) sprite_index = runspr
-			if (move2%(-sign(hsp)/2+2.5)) sprite_index = turnspr
+			if (move2%(-sign(hsp)/2+2.5)) {
+				sprite_index = turnspr
+				audio_play_sound(sfx_skid, 1, 0, global.sfx_vol, 0);
+			}
 			image_speed = 1/2
 			if (turnspeedup>0) hsp = Approach(hsp, runspd*move, turnaccel)
 		}

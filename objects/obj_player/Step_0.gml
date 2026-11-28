@@ -1,4 +1,10 @@
-get_input();
+if (disable_controls > 0) {
+	disable_controls--;
+	get_empty_input();
+	input_buffer_jump = 0;
+} else {
+	get_input();
+}
 
 if !audio_is_playing(sfx_coin)
 	global.coinpitch = 1;

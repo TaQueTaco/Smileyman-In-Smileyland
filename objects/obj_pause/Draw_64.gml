@@ -5,7 +5,11 @@ if global.pause
 	draw_sprite(picture, 0, 0, 0)
 draw_set_alpha(alpha * 0.5)
 draw_set_colour(c_black)
-draw_rectangle(0, 0, room_width, room_height, 0)
+draw_rectangle(0, 0, _camw, _camh, 0)
+
+draw_set_alpha(alpha * 0.25) 
+draw_sprite_tiled(spr_pausebg,0,scrolltime,scrolltime);
+
 draw_set_alpha(alpha)
 draw_set_font(global.fnt_text)
 for (var i = 0; i < array_length(options); i++)

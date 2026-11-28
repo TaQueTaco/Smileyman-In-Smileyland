@@ -21,9 +21,10 @@ if instance_exists(obj_spawnpoint)
 	if (room != gameover) && (room != levelselect)
 	{
 		sound_play(sfx_fadein)
-		with instance_create_depth(obj_spawnpoint.x, obj_spawnpoint.y, -999, obj_pinhole)
+		with instance_create_depth(camera_get_view_width(view_camera[0])/2, camera_get_view_height(view_camera[0])/2, -9999, obj_pinhole)
 		{
 			transition = 0	
+			tr_shrink = false
 		}
 	}
 }

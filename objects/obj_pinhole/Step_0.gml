@@ -2,7 +2,7 @@ if amt > 0
 	amt -= 0.02
 else
 {
-	if wait && transition
+	if wait //&& transition
 		wait--
 	else
 	{
@@ -73,28 +73,30 @@ else
 		}
 	}
 }
-if global.pause
-{
-	x = camera_get_view_x(view_camera[0]) + 480
-	y = camera_get_view_x(view_camera[0]) + 270
-}
-else if (string_pos("Cutscene", room_get_name(room)) != 0)
-{
-	x = (room_width / 2)
-	y = 270
-}
-else if room == gameover
-{
-	x = 480
-	y = 270
-}
-else if instance_exists(obj_titlescreen)
-{
-	x = 723
-	y = 258
-}
-else if instance_exists(obj_player)
-{
-	x = lerp(x, obj_player.x, 0.5)	
-	y = lerp(y, obj_player.y, 0.5)	
+if !huddraw { // in case it needs to be behind other ui
+	if global.pause
+	{
+		x = camera_get_view_x(view_camera[0]) + 480
+		y = camera_get_view_x(view_camera[0]) + 270
+	}
+	else if (string_pos("Cutscene", room_get_name(room)) != 0)
+	{
+		x = (room_width / 2)
+		y = 270
+	}
+	else if room == gameover
+	{
+		x = 480
+		y = 270
+	}
+	else if instance_exists(obj_titlescreen)
+	{
+		x = 723
+		y = 258
+	}
+	else if instance_exists(obj_player)
+	{
+		x = lerp(x, obj_player.x, 0.5)	
+		y = lerp(y, obj_player.y, 0.5)	
+	}
 }

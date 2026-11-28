@@ -16,3 +16,22 @@ function get_input(){
 	key_accept = InputPressed(INPUT_VERB.ACCEPT)
 	key_cancel = InputPressed(INPUT_VERB.CANCEL)
 }
+
+function get_empty_input(){
+	key_left  = false
+	key_right = false
+	key_up    = false
+	key_down  = false
+	key_jump  = false
+	key_run   = false
+	
+	key_left2  = false
+	key_right2 = false
+	key_up2    = false
+	key_down2  = false
+	key_jump2  = false
+	key_run2   = false
+	
+	key_accept = false
+	key_cancel = false
+}
